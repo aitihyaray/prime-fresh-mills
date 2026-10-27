@@ -1,45 +1,43 @@
-# Prime Fresh Oil Mills — B2B Wholesale Portal
+# Prime Fresh Oil Mills — B2B Wholesale Portal (React)
 
 Official B2B digital portal and wholesale catalog for **Prime Fresh Oil Mills**, processors and exporters of cold-pressed mustard oil, high-protein de-oiled cakes (DOC), and export-grade agricultural seeds.
 
+Rewritten as a modern **React 19 + TypeScript + Vite + Tailwind CSS** application.
+
 ## Features
 
-- **Interactive Scroll-Scrub Animation**: Canvas-driven 237-frame sequence capturing the signature bottle splash with buttery-smooth scroll interpolation.
+- **Interactive Scroll-Scrub Animation**: Canvas-driven 237-frame sequence capturing signature product 3D rotation and splash with smooth scroll interpolation and GPU decompression.
 - **Wholesale Inventory & Catalog**:
   - Cold-pressed Kachi Ghani Mustard Oil with bulk specifications (FFA, Purity, Pungency).
   - High-protein De-Oiled Cakes (DOC) & Export Grade Seeds (Yellow Sesame, Black Mustard, Groundnut, etc.).
 - **Multi-Product RFQ Engine**:
-  - Interactive multi-item selection with instant floating counter.
-  - Tag-based inquiry builder with quantity, packaging, and freight selection.
+  - Interactive multi-item selection with instant floating counter and pulse feedback.
+  - Tag-based inquiry builder with volume, delivery destination, packaging, and freight selection.
 - **B2B AI Quality Assistant**:
   - 8-bit retro pixel art animated header with custom bottle and pouch canvas.
   - Instant knowledge base covering purity %, moisture, FFA levels, and export specs.
   - Direct 1-click addition from chat recommendations into the active RFQ list.
 
-## Quick Start (Local Development)
+## Development & Build
 
-Start the local Python HTTP server:
-
+### Install Dependencies
 ```bash
-python3 server.py 8000
+npm install
 ```
 
-Open your browser and navigate to:
+### Start Local Development Server
+```bash
+npm run dev
 ```
-http://localhost:8000/
+Dev server listens on `http://0.0.0.0:3000`.
+
+### Production Build
+```bash
+npm run build
 ```
 
-## Project Structure
-
-```
-├── index.html                 # Main B2B landing page & catalog
-├── index_standalone.html      # Standalone scroll animation testbed
-├── script.js                  # Scroll scrubbing & interaction scripts
-├── styles.css                 # Base stylesheet & animations
-├── server.py                  # Optimized local development server
-├── ezgif-frame-*.jpg          # 237 animation sequence frames
-├── mustard_oil_mockup.png     # Hero mustard oil asset
-├── natural-sesame-seed.jpg    # Catalog product imagery
-├── logo.png                   # Prime Fresh Mills branding
-└── .gitignore                 # Standard system and runtime ignores
-```
+## Tech Stack
+- **Framework**: React 19, TypeScript
+- **Bundler & Tooling**: Vite
+- **Styling**: Tailwind CSS
+- **Assets**: 237-frame 3D scroll animation sequence, optimized vector and raster imagery

@@ -1,0 +1,6 @@
+{
+  "name": "Prime Fresh Oil Mills",
+  "description": "Wholesale Agronomy & Bulk Edible Oils B2B portal with interactive 3D scroll animation, multi-product RFQ engine, and AI quality assistant.",
+  "permissions": [],
+  "capabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
