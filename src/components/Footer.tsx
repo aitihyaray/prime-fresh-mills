@@ -15,7 +15,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               <img
                 alt="Prime Fresh Oil Mills"
                 className="h-10 w-10 object-contain shrink-0"
-                src="/logo.png"
+                src="./logo.png"
               />
               <span className="text-xl text-[#1C1917] font-bold">
                 Prime Fresh Oil Mills

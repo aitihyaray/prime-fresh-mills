@@ -59,7 +59,7 @@ export const Header: React.FC<HeaderProps> = ({ onNavigate }) => {
               <img
                 alt="Prime Fresh Oil Mills"
                 className="h-11 w-11 sm:h-12 sm:w-12 object-contain shrink-0 transition-transform duration-200 group-hover:scale-105"
-                src="/logo.png"
+                src="./logo.png"
               />
               <span className="font-bold text-lg sm:text-xl text-[#1C1917] tracking-tight leading-none">
                 Prime Fresh Oil Mills
@@ -168,7 +168,7 @@ export const Header: React.FC<HeaderProps> = ({ onNavigate }) => {
           <div className="flex items-center justify-between pb-5 mb-4 border-b border-[#EADFB4]/60">
             <div className="flex items-center gap-2.5">
               <img
-                src="/logo.png"
+                src="./logo.png"
                 alt="Prime Fresh Oil Mills"
                 className="h-9 w-9 object-contain shrink-0"
               />

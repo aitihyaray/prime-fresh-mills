@@ -11,19 +11,21 @@ export const HeroAnimation: React.FC = () => {
   const targetFrameRef = useRef<number>(0);
   const currentFrameRef = useRef<number>(0);
   const lastRenderedFrameRef = useRef<number>(-1);
-  const lastTimeRef = useRef<number>(performance.now());
+  const lastTimeRef = useRef<number>(
+    typeof performance !== "undefined" ? performance.now() : Date.now()
+  );
   const rafIdRef = useRef<number | null>(null);
   const [loadedCount, setLoadedCount] = useState<number>(0);
 
   const getFrameUrl = (index: number) => {
     const num = String(index + 1).padStart(3, "0");
-    return `/ezgif-frame-${num}.jpg`;
+    return `./ezgif-frame-${num}.jpg`;
   };
 
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-    const ctx = canvas.getContext("2d", { alpha: false, desynchronized: true });
+    const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
     // 1. Draw Image Helper
@@ -46,9 +48,12 @@ export const HeroAnimation: React.FC = () => {
       // Mobile: align visual focal point (bottle and pouch cluster) dead center
       // Adjusting focal point to 55% accounts for the bottle+packet cluster offset
       const focalX = isMobile ? 0.55 : 0.5;
-      const dx = isMobile ? cw * 0.5 - renderWidth * focalX : (cw - renderWidth) / 2;
+      const dx = isMobile
+        ? cw * 0.5 - renderWidth * focalX
+        : (cw - renderWidth) / 2;
       const dy = (ch - renderHeight) / 2;
 
+      ctx.clearRect(0, 0, cw, ch);
       ctx.imageSmoothingEnabled = true;
       ctx.imageSmoothingQuality = "high";
       ctx.drawImage(img, dx, dy, renderWidth, renderHeight);
@@ -62,11 +67,21 @@ export const HeroAnimation: React.FC = () => {
       }
       for (let offset = 1; offset < TOTAL_FRAMES; offset++) {
         const prev = index - offset;
-        if (prev >= 0 && imgs[prev] && imgs[prev].complete && imgs[prev].naturalWidth > 0) {
+        if (
+          prev >= 0 &&
+          imgs[prev] &&
+          imgs[prev].complete &&
+          imgs[prev].naturalWidth > 0
+        ) {
           return imgs[prev];
         }
         const next = index + offset;
-        if (next < TOTAL_FRAMES && imgs[next] && imgs[next].complete && imgs[next].naturalWidth > 0) {
+        if (
+          next < TOTAL_FRAMES &&
+          imgs[next] &&
+          imgs[next].complete &&
+          imgs[next].naturalWidth > 0
+        ) {
           return imgs[next];
         }
       }
@@ -88,20 +103,22 @@ export const HeroAnimation: React.FC = () => {
       const isMobile = window.innerWidth <= 768;
 
       // Full immersive size filling the container card on both desktop and mobile
-      const width = card
-        ? card.clientWidth
-        : Math.min(window.innerWidth * (isMobile ? 0.94 : 0.92), 1240);
+      const width =
+        card && card.clientWidth > 0
+          ? card.clientWidth
+          : Math.min(window.innerWidth * (isMobile ? 0.94 : 0.92), 1240);
 
-      const height = card
-        ? card.clientHeight
-        : Math.max(300, window.innerHeight - (isMobile ? 100 : 120));
+      const height =
+        card && card.clientHeight > 0
+          ? card.clientHeight
+          : Math.max(300, window.innerHeight - (isMobile ? 100 : 120));
 
       canvas.width = Math.round(width * dpr);
       canvas.height = Math.round(height * dpr);
       canvas.style.width = `${width}px`;
       canvas.style.height = `${height}px`;
 
-      ctx.scale(dpr, dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       ctx.imageSmoothingEnabled = true;
       ctx.imageSmoothingQuality = "high";
 
@@ -120,38 +137,48 @@ export const HeroAnimation: React.FC = () => {
       if (track) {
         maxScroll = Math.max(1, track.offsetHeight - window.innerHeight);
       } else {
-        maxScroll = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+        maxScroll = Math.max(
+          1,
+          document.documentElement.scrollHeight - window.innerHeight
+        );
       }
-      const scrollTop = window.scrollY || window.pageYOffset || document.documentElement.scrollTop || 0;
+      const scrollTop =
+        window.scrollY ||
+        window.pageYOffset ||
+        document.documentElement.scrollTop ||
+        0;
       const progress = Math.max(0, Math.min(1, scrollTop / maxScroll));
       targetFrameRef.current = progress * (TOTAL_FRAMES - 1);
     };
 
-    // 5. Preload Images
+    // 5. Preload Images reliably across CDN/Production networks
     let loaded = 0;
     imagesRef.current = [];
     for (let i = 0; i < TOTAL_FRAMES; i++) {
       const img = new Image();
-      img.src = getFrameUrl(i);
+      if (i === 0) {
+        img.fetchPriority = "high";
+      }
+
       const markLoaded = () => {
         loaded++;
-        if (loaded % 20 === 0 || loaded === TOTAL_FRAMES) {
+        if (loaded === 1 || loaded % 20 === 0 || loaded === TOTAL_FRAMES) {
           setLoadedCount(loaded);
         }
-        if (i === 0 && lastRenderedFrameRef.current === -1) {
-          render(0);
+        const targetIdx = Math.round(currentFrameRef.current);
+        if (lastRenderedFrameRef.current === -1 || i === targetIdx) {
+          render(targetIdx);
         }
       };
 
-      if (img.decode) {
-        img.decode()
-          .then(markLoaded)
-          .catch(() => {
-            img.onload = markLoaded;
-          });
-      } else {
-        img.onload = markLoaded;
+      img.onload = markLoaded;
+      img.src = getFrameUrl(i);
+
+      // Handle already cached images
+      if (img.complete && img.naturalWidth > 0) {
+        markLoaded();
       }
+
       imagesRef.current.push(img);
     }
 
@@ -162,14 +189,18 @@ export const HeroAnimation: React.FC = () => {
 
       // Exponential damping
       const factor = 1 - Math.exp(-12 * dt);
-      currentFrameRef.current += (targetFrameRef.current - currentFrameRef.current) * factor;
+      currentFrameRef.current +=
+        (targetFrameRef.current - currentFrameRef.current) * factor;
 
       if (Math.abs(targetFrameRef.current - currentFrameRef.current) < 0.005) {
         currentFrameRef.current = targetFrameRef.current;
       }
 
       const frameToDraw = Math.round(currentFrameRef.current);
-      if (frameToDraw !== lastRenderedFrameRef.current) {
+      if (
+        frameToDraw !== lastRenderedFrameRef.current ||
+        lastRenderedFrameRef.current === -1
+      ) {
         render(frameToDraw);
       }
 
@@ -220,7 +251,7 @@ export const HeroAnimation: React.FC = () => {
         <div
           id="animation-frame-card"
           ref={cardRef}
-          className="relative mx-auto rounded-2xl border border-[#EADFB4]/80 shadow-lg overflow-hidden flex items-center justify-center bg-white pointer-events-none"
+          className="relative mx-auto rounded-2xl border border-[#EADFB4]/80 shadow-lg overflow-hidden flex items-center justify-center bg-[#FAF7E8] pointer-events-none"
           style={{
             width: "min(92vw, 1240px)",
             height: "min(calc(100vh - 120px), 760px)",

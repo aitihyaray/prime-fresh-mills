@@ -4,8 +4,13 @@ import App from "./App";
 import { ErrorBoundary } from "./components/ErrorBoundary";
 import "./index.css";
 
-const rootElement = document.getElementById("root");
-if (rootElement) {
+function mountApp() {
+  const rootElement = document.getElementById("root");
+  if (!rootElement) {
+    console.error("Root element #root not found in document.");
+    return;
+  }
+
   ReactDOM.createRoot(rootElement).render(
     <React.StrictMode>
       <ErrorBoundary>
@@ -13,4 +18,12 @@ if (rootElement) {
       </ErrorBoundary>
     </React.StrictMode>
   );
+}
+
+if (typeof document !== "undefined") {
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", mountApp, { once: true });
+  } else {
+    mountApp();
+  }
 }
