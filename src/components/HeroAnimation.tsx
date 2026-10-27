@@ -35,11 +35,18 @@ export const HeroAnimation: React.FC = () => {
       const iw = img.naturalWidth || 1920;
       const ih = img.naturalHeight || 1080;
 
-      // Standard cover scaling for the full frame
+      const isMobile = window.innerWidth <= 768;
+
+      // Full-height immersive cover scaling filling the card container without white borders
       const scale = Math.max(cw / iw, ch / ih);
       const renderWidth = iw * scale;
       const renderHeight = ih * scale;
-      const dx = (cw - renderWidth) / 2;
+
+      // Desktop: 100% untouched standard (cw - renderWidth) / 2
+      // Mobile: align visual focal point (bottle and pouch cluster) dead center
+      // Adjusting focal point to 55% accounts for the bottle+packet cluster offset
+      const focalX = isMobile ? 0.55 : 0.5;
+      const dx = isMobile ? cw * 0.5 - renderWidth * focalX : (cw - renderWidth) / 2;
       const dy = (ch - renderHeight) / 2;
 
       ctx.imageSmoothingEnabled = true;
@@ -78,8 +85,16 @@ export const HeroAnimation: React.FC = () => {
     const resizeCanvas = () => {
       const card = cardRef.current;
       const dpr = Math.min(window.devicePixelRatio || 1, 2);
-      const width = card ? card.clientWidth : Math.min(window.innerWidth * 0.92, 1240);
-      const height = card ? card.clientHeight : Math.max(300, window.innerHeight - 120);
+      const isMobile = window.innerWidth <= 768;
+
+      // Full immersive size filling the container card on both desktop and mobile
+      const width = card
+        ? card.clientWidth
+        : Math.min(window.innerWidth * (isMobile ? 0.94 : 0.92), 1240);
+
+      const height = card
+        ? card.clientHeight
+        : Math.max(300, window.innerHeight - (isMobile ? 100 : 120));
 
       canvas.width = Math.round(width * dpr);
       canvas.height = Math.round(height * dpr);

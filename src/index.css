@@ -28,20 +28,35 @@
 }
 
 .rfq-toggle-btn {
-  border: 1.5px solid #8B4513;
-  background-color: #FFFDF5;
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  background: rgba(254, 243, 199, 0.55);
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  border: 1px solid rgba(146, 64, 14, 0.25);
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.6), 0 2px 6px rgba(0, 0, 0, 0.05);
   color: #8B4513;
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.2s ease;
 }
 .rfq-toggle-btn:hover:not(.is-selected) {
-  background-color: #FAF0E1;
-  transform: translateY(-1px);
+  background: rgba(254, 243, 199, 0.85);
+  border-color: rgba(146, 64, 14, 0.4);
+  box-shadow: inset 0 1px 1.5px rgba(255, 255, 255, 0.8), 0 4px 10px rgba(139, 69, 19, 0.12);
+  transform: scale(1.05);
 }
 .rfq-toggle-btn.is-selected {
-  background-color: #8B4513 !important;
+  background: rgba(139, 69, 19, 0.9) !important;
+  backdrop-filter: blur(12px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(12px) saturate(180%) !important;
   color: #FFFFFF !important;
-  border-color: #8B4513 !important;
-  box-shadow: 0 4px 12px rgba(139, 69, 19, 0.28);
+  border: 1px solid rgba(255, 255, 255, 0.35) !important;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.4), 0 4px 12px rgba(139, 69, 19, 0.28) !important;
 }
 .rfq-toggle-btn.bounce-pop {
   animation: rfqBounce 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -66,14 +81,63 @@
 .pulse-glow {
   animation: rfqPulseGlow 0.8s ease-out;
 }
-.launcher-glow {
-  box-shadow: 0 4px 18px rgba(139, 69, 19, 0.4), 0 0 0 0 rgba(139, 69, 19, 0.35);
-  animation: launcherGlow 2.5s infinite;
+/* Apple Frosted Glassmorphic Header CTA ("Get Quote") */
+.header-cta-glass {
+  border-radius: 9999px;
+  white-space: nowrap;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 8px 16px;
+  background: rgba(140, 75, 10, 0.15);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.35), 0 4px 12px rgba(0, 0, 0, 0.08);
+  color: #5c3008;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
-@keyframes launcherGlow {
-  0% { box-shadow: 0 4px 18px rgba(139, 69, 19, 0.4), 0 0 0 0 rgba(139, 69, 19, 0.35); }
-  70% { box-shadow: 0 4px 20px rgba(139, 69, 19, 0.4), 0 0 0 10px rgba(139, 69, 19, 0); }
-  100% { box-shadow: 0 4px 18px rgba(139, 69, 19, 0.4), 0 0 0 0 rgba(139, 69, 19, 0); }
+
+.header-cta-glass:hover {
+  background: rgba(140, 75, 10, 0.22);
+  border-color: rgba(255, 255, 255, 0.6);
+  box-shadow: inset 0 1px 1.5px 0 rgba(255, 255, 255, 0.45), 0 6px 16px rgba(140, 75, 10, 0.14);
+  transform: translateY(-1px);
+}
+
+.header-cta-glass:active {
+  transform: scale(0.96);
+  background: rgba(140, 75, 10, 0.28);
+}
+
+@media (min-width: 640px) {
+  .header-cta-glass {
+    font-size: 14px;
+    font-weight: 600;
+    padding: 9px 20px;
+  }
+}
+
+/* Apple Glassmorphic Floating Chat Widget Button (Brown Tint) */
+.chat-launcher-glass {
+  border-radius: 50%;
+  background: rgba(146, 64, 14, 0.65);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: inset 0 1px 1.5px rgba(255, 255, 255, 0.4), 0 8px 20px rgba(92, 40, 10, 0.25);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.chat-launcher-glass:hover {
+  background: rgba(146, 64, 14, 0.78);
+  border-color: rgba(255, 255, 255, 0.5);
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.5), 0 12px 28px rgba(92, 40, 10, 0.32);
+  transform: scale(1.05);
+}
+
+.chat-launcher-glass:active {
+  transform: scale(0.95);
+  background: rgba(120, 53, 15, 0.85);
 }
 .no-scrollbar::-webkit-scrollbar {
   display: none;
@@ -89,3 +153,130 @@
 .animate-dot-1 { animation: dotBounce 1.2s infinite ease-in-out; }
 .animate-dot-2 { animation: dotBounce 1.2s infinite ease-in-out 0.2s; }
 .animate-dot-3 { animation: dotBounce 1.2s infinite ease-in-out 0.4s; }
+
+/* ==========================================================================
+   MOBILE-ONLY HERO ANIMATION FIXES (<= 768px)
+   Strictly scoped to mobile devices; zero changes on desktop viewports.
+   ========================================================================== */
+@media (max-width: 768px) {
+  #animation-sticky-container {
+    padding-top: 72px !important;
+    padding-bottom: 16px !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 auto !important;
+    width: 100vw !important;
+    max-width: 100vw !important;
+    left: 0 !important;
+    right: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  #animation-frame-card {
+    /* Full immersive dimensions filling container, no small restrictions or white borders */
+    width: min(94vw, 1240px) !important;
+    height: min(calc(100vh - 100px), 760px) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 auto !important;
+    left: auto !important;
+    right: auto !important;
+    transform: none !important;
+    border-radius: 14px !important;
+    box-sizing: border-box !important;
+  }
+
+  #animation-canvas {
+    display: block !important;
+    margin: 0 auto !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: 55% center !important;
+    border-radius: 14px !important;
+  }
+}
+
+/* ==========================================================================
+   APPLE FROSTED GLASS SLIDE-OUT NAVIGATION DRAWER
+   ========================================================================== */
+.drawer-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 190;
+  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.drawer-panel {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 75vw;
+  max-width: 300px;
+  z-index: 200;
+  background: rgba(255, 252, 245, 0.85);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-right: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 10px 0 25px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.drawer-nav-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 19px;
+  font-weight: 500;
+  padding: 14px 20px;
+  border-radius: 14px;
+  color: #1C1917;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.drawer-nav-link:hover {
+  background: rgba(141, 75, 0, 0.1);
+  color: #8d4b00;
+  transform: translateX(4px);
+}
+
+.drawer-nav-link:active {
+  background: rgba(141, 75, 0, 0.18);
+  transform: scale(0.98);
+}
+
+/* ==========================================================================
+   APPLE FROSTED EMERALD GLASS WHATSAPP INQUIRY BUTTON
+   ========================================================================== */
+.whatsapp-glass-btn {
+  background: rgba(37, 211, 102, 0.2);
+  border: 1px solid rgba(37, 211, 102, 0.4);
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.5), 0 4px 12px rgba(37, 211, 102, 0.16);
+  color: #0d5324;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.whatsapp-glass-btn:hover {
+  background: rgba(37, 211, 102, 0.28);
+  border-color: rgba(37, 211, 102, 0.6);
+  box-shadow: inset 0 1px 1.5px 0 rgba(255, 255, 255, 0.65), 0 6px 18px rgba(37, 211, 102, 0.25);
+  transform: translateY(-1px);
+}
+
+.whatsapp-glass-btn:active {
+  background: rgba(37, 211, 102, 0.35);
+  transform: scale(0.98);
+}
+
+
+

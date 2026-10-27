@@ -255,7 +255,7 @@ export const QualityAssistantChatbot: React.FC<QualityAssistantChatbotProps> = (
         id="chatbotLauncherBtn"
         type="button"
         onClick={() => setIsOpen((prev) => !prev)}
-        className="relative w-14 h-14 rounded-full bg-[#8B4513] hover:bg-[#72380F] text-white flex items-center justify-center shadow-xl transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer launcher-glow"
+        className="chat-launcher-glass relative w-14 h-14 rounded-full text-white flex items-center justify-center cursor-pointer transition-all duration-300 active:scale-95"
         aria-label="Open Prime Quality Assistant"
         title="Quality & Specs Assistant"
       >

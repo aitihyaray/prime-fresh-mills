@@ -95,7 +95,7 @@ export const ProductCatalog: React.FC<ProductCatalogProps> = ({
                     </button>
                     <button
                       type="button"
-                      className={`rfq-toggle-btn w-10 h-10 rounded-full flex items-center justify-center shrink-0 border-[1.5px] border-[#8B4513] transition-all duration-200 active:scale-90 shadow-sm cursor-pointer ${
+                      className={`rfq-toggle-btn shrink-0 active:scale-95 cursor-pointer ${
                         isSelected ? "is-selected" : ""
                       }`}
                       onClick={() => onToggleProduct(product.productName)}
@@ -110,9 +110,35 @@ export const ProductCatalog: React.FC<ProductCatalogProps> = ({
                           : "Add to Inquiry List"
                       }
                     >
-                      <span className="btn-icon text-lg font-bold leading-none select-none transition-transform duration-200">
-                        {isSelected ? "✓" : "+"}
-                      </span>
+                      {isSelected ? (
+                        <svg
+                          className="w-4 h-4 stroke-current"
+                          fill="none"
+                          strokeWidth="2.5"
+                          viewBox="0 0 24 24"
+                          aria-hidden="true"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M5 13l4 4L19 7"
+                          />
+                        </svg>
+                      ) : (
+                        <svg
+                          className="w-4 h-4 stroke-current"
+                          fill="none"
+                          strokeWidth="2.4"
+                          viewBox="0 0 24 24"
+                          aria-hidden="true"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M12 5v14M5 12h14"
+                          />
+                        </svg>
+                      )}
                     </button>
                   </div>
                 </div>
@@ -172,7 +198,7 @@ export const ProductCatalog: React.FC<ProductCatalogProps> = ({
                     </button>
                     <button
                       type="button"
-                      className={`rfq-toggle-btn w-10 h-10 rounded-full flex items-center justify-center shrink-0 border-[1.5px] border-[#8B4513] transition-all duration-200 active:scale-90 shadow-sm cursor-pointer ${
+                      className={`rfq-toggle-btn shrink-0 active:scale-95 cursor-pointer ${
                         isSelected ? "is-selected" : ""
                       }`}
                       onClick={() => onToggleProduct(product.productName)}
@@ -187,9 +213,35 @@ export const ProductCatalog: React.FC<ProductCatalogProps> = ({
                           : "Add to Inquiry List"
                       }
                     >
-                      <span className="btn-icon text-lg font-bold leading-none select-none transition-transform duration-200">
-                        {isSelected ? "✓" : "+"}
-                      </span>
+                      {isSelected ? (
+                        <svg
+                          className="w-4 h-4 stroke-current"
+                          fill="none"
+                          strokeWidth="2.5"
+                          viewBox="0 0 24 24"
+                          aria-hidden="true"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M5 13l4 4L19 7"
+                          />
+                        </svg>
+                      ) : (
+                        <svg
+                          className="w-4 h-4 stroke-current"
+                          fill="none"
+                          strokeWidth="2.4"
+                          viewBox="0 0 24 24"
+                          aria-hidden="true"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M12 5v14M5 12h14"
+                          />
+                        </svg>
+                      )}
                     </button>
                   </div>
                 </div>

@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { ALL_PRODUCT_OPTIONS } from "../data/portalData";
 
+// Owner's WhatsApp Number (Country code + 10-digit number, no '+' or spaces, e.g., '91XXXXXXXXXX')
+const OWNER_WHATSAPP_NUMBER = "919057292529";
+
 interface QuoteSectionProps {
   selectedProducts: Set<string>;
   onAddProduct: (prod: string) => void;
@@ -23,12 +26,24 @@ export const QuoteSection: React.FC<QuoteSectionProps> = ({
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [showProductError, setShowProductError] = useState(false);
+  const [validationAlert, setValidationAlert] = useState<string | null>(null);
+
+  const showInlineAlert = (msg: string) => {
+    setValidationAlert(msg);
+    setTimeout(() => {
+      setValidationAlert((current) => (current === msg ? null : current));
+    }, 4500);
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    setValidationAlert(null);
 
     if (selectedProducts.size === 0) {
       setShowProductError(true);
+      showInlineAlert(
+        "Please select at least one product from the catalog or dropdown before submitting."
+      );
       setTimeout(() => setShowProductError(false), 2000);
       const chipsEl = document.getElementById("productChipsBox");
       if (chipsEl) {
@@ -44,8 +59,80 @@ export const QuoteSection: React.FC<QuoteSectionProps> = ({
     }, 700);
   };
 
+  const handleWhatsAppInquiry = () => {
+    setValidationAlert(null);
+
+    const missingFields: string[] = [];
+    if (selectedProducts.size === 0) {
+      missingFields.push("at least one Product of Interest");
+      setShowProductError(true);
+      setTimeout(() => setShowProductError(false), 2200);
+    }
+    if (!companyName.trim()) missingFields.push("Company Name");
+    if (!phone.trim()) missingFields.push("Contact Number");
+    if (!email.trim()) missingFields.push("Business Email");
+
+    if (missingFields.length > 0) {
+      showInlineAlert(
+        `Please provide ${missingFields.join(", ")} before sending via WhatsApp.`
+      );
+      if (selectedProducts.size === 0) {
+        const chipsEl = document.getElementById("productChipsBox");
+        if (chipsEl) {
+          chipsEl.scrollIntoView({ behavior: "smooth", block: "center" });
+        }
+      }
+      return;
+    }
+
+    const productsBulletList = Array.from(selectedProducts)
+      .map((prod) => `- ${prod}`)
+      .join("\n");
+
+    const requirementLines: string[] = [];
+    if (volume.trim()) {
+      requirementLines.push(`*Order Volume:* ${volume.trim()}`);
+    }
+    if (location.trim()) {
+      requirementLines.push(`*Delivery Destination:* ${location.trim()}`);
+    }
+    if (specifications.trim()) {
+      requirementLines.push(`*Packaging / Specs:* ${specifications.trim()}`);
+    }
+    requirementLines.push(
+      "Please provide freight factoring and rate quotation for the above items."
+    );
+
+    const messageText = [
+      "*New Commercial Inquiry - Prime Fresh Oil Mills*",
+      "",
+      `*Company:* ${companyName.trim()}`,
+      `*Contact:* ${phone.trim()}`,
+      `*Email:* ${email.trim()}`,
+      "",
+      "*Products of Interest:*",
+      productsBulletList,
+      "",
+      "*Requirement Details:*",
+      ...requirementLines,
+    ].join("\n");
+
+    const encodedMessage = encodeURIComponent(messageText);
+    const whatsappUrl = `https://wa.me/${OWNER_WHATSAPP_NUMBER}?text=${encodedMessage}`;
+
+    // Open WhatsApp in a new tab safely
+    const anchor = document.createElement("a");
+    anchor.href = whatsappUrl;
+    anchor.target = "_blank";
+    anchor.rel = "noopener noreferrer";
+    document.body.appendChild(anchor);
+    anchor.click();
+    document.body.removeChild(anchor);
+  };
+
   const handleReset = () => {
     setIsSubmitted(false);
+    setValidationAlert(null);
     setCompanyName("");
     setPhone("");
     setEmail("");
@@ -289,6 +376,7 @@ export const QuoteSection: React.FC<QuoteSectionProps> = ({
                         const val = e.target.value;
                         if (val) {
                           onAddProduct(val);
+                          setValidationAlert(null);
                           e.target.value = "";
                         }
                       }}
@@ -361,9 +449,31 @@ export const QuoteSection: React.FC<QuoteSectionProps> = ({
                   />
                 </div>
 
-                <div className="pt-2">
+                {/* Inline Validation Toast / Alert */}
+                {validationAlert && (
+                  <div
+                    role="alert"
+                    className="flex items-start gap-2.5 p-3 rounded-xl bg-amber-50/90 border border-amber-300 text-[#8d4b00] text-xs font-medium shadow-xs animate-chip-in"
+                  >
+                    <span className="material-symbols-outlined text-[18px] shrink-0 mt-0.5">
+                      error
+                    </span>
+                    <span className="flex-1 leading-relaxed">{validationAlert}</span>
+                    <button
+                      type="button"
+                      onClick={() => setValidationAlert(null)}
+                      className="text-[#8d4b00]/70 hover:text-[#8d4b00] font-bold text-sm leading-none px-1 cursor-pointer"
+                      aria-label="Dismiss alert"
+                    >
+                      &times;
+                    </button>
+                  </div>
+                )}
+
+                {/* Form Action Buttons: Submit Quote Request & Inquire via WhatsApp */}
+                <div className="pt-2 grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <button
-                    className="w-full inline-flex items-center justify-center text-sm font-semibold text-white bg-[#8d4b00] hover:bg-[#b15f00] h-12 rounded-lg transition-all shadow-md hover:shadow-lg disabled:opacity-75 cursor-pointer"
+                    className="w-full inline-flex items-center justify-center text-sm font-semibold text-white bg-[#8d4b00] hover:bg-[#b15f00] h-12 px-5 rounded-full transition-all shadow-md hover:shadow-lg disabled:opacity-75 cursor-pointer"
                     id="submitBtn"
                     type="submit"
                     disabled={isSubmitting}
@@ -374,6 +484,23 @@ export const QuoteSection: React.FC<QuoteSectionProps> = ({
                     <span className="material-symbols-outlined ml-2 text-[20px]">
                       assignment_turned_in
                     </span>
+                  </button>
+
+                  <button
+                    type="button"
+                    id="whatsappInquiryBtn"
+                    onClick={handleWhatsAppInquiry}
+                    className="whatsapp-glass-btn w-full inline-flex items-center justify-center gap-2.5 text-sm font-semibold h-12 px-5 rounded-full cursor-pointer"
+                  >
+                    {/* Official WhatsApp SVG Icon */}
+                    <svg
+                      className="w-5 h-5 fill-[#128C7E] shrink-0"
+                      viewBox="0 0 24 24"
+                      aria-hidden="true"
+                    >
+                      <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zm-3.423-14.416c-6.627 0-12 5.373-12 12 0 2.625.846 5.059 2.284 7.033l-1.492 5.451 5.587-1.465c1.911 1.254 4.191 1.981 6.645 1.981 6.627 0 12-5.373 12-12s-5.397-12-12.024-12z" />
+                    </svg>
+                    <span>Inquire via WhatsApp</span>
                   </button>
                 </div>
               </form>
