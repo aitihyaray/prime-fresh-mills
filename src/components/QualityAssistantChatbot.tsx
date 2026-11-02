@@ -345,7 +345,7 @@ export const QualityAssistantChatbot: React.FC<QualityAssistantChatbotProps> = (
             if (msg.sender === "user") {
               return (
                 <div key={msg.id} className="flex justify-end">
-                  <div className="bg-[#8B4513] text-white p-3 rounded-2xl rounded-tr-none max-w-[85%] shadow-sm leading-relaxed">
+                  <div className="bg-[#124026] text-white p-3 rounded-2xl rounded-tr-none max-w-[85%] shadow-sm leading-relaxed">
                     {msg.text}
                   </div>
                 </div>
@@ -355,7 +355,7 @@ export const QualityAssistantChatbot: React.FC<QualityAssistantChatbotProps> = (
             // Bot message
             return (
               <div key={msg.id} className="flex items-start gap-2">
-                <div className="w-7 h-7 rounded-full bg-[#8B4513] text-white flex items-center justify-center shrink-0 text-xs font-bold shadow-sm select-none">
+                <div className="w-7 h-7 rounded-full bg-[#124026] text-[#F3C23A] flex items-center justify-center shrink-0 text-xs font-bold shadow-sm select-none">
                   🌾
                 </div>
                 <div className="bg-[#F4EDE0] text-[#1C1917] p-3 rounded-2xl rounded-tl-none border border-[#E8DFD0] max-w-[88%] shadow-sm leading-relaxed">
@@ -367,7 +367,7 @@ export const QualityAssistantChatbot: React.FC<QualityAssistantChatbotProps> = (
                   )}
                   {msg.knowledgeItem && (
                     <div>
-                      <div className="font-bold text-[#8B4513] mb-2 flex items-center gap-1.5 border-b border-[#E8DFD0] pb-1.5 text-xs sm:text-sm">
+                      <div className="font-bold text-[#124026] mb-2 flex items-center gap-1.5 border-b border-[#E8DFD0] pb-1.5 text-xs sm:text-sm">
                         <span>📋</span>
                         <span>{msg.knowledgeItem.title}</span>
                       </div>
@@ -377,10 +377,10 @@ export const QualityAssistantChatbot: React.FC<QualityAssistantChatbotProps> = (
                             key={idx}
                             className="bg-white/80 p-1.5 rounded border border-[#E8DFD0]/60"
                           >
-                            <span className="font-semibold text-[#1C1917] block">
+                            <span className="font-semibold text-[#0F291A] block">
                               {s.label}:
                             </span>
-                            <span className="text-[#44403C]">{s.value}</span>
+                            <span className="text-[#2A3F32]">{s.value}</span>
                           </div>
                         ))}
                       </div>
@@ -397,9 +397,9 @@ export const QualityAssistantChatbot: React.FC<QualityAssistantChatbotProps> = (
                                 quoteEl.scrollIntoView({ behavior: "smooth" });
                               }
                             }}
-                            className="w-full inline-flex items-center justify-center gap-1.5 py-1.5 px-3 rounded-lg bg-[#8B4513] hover:bg-[#72380F] text-white text-[11px] font-semibold transition-all shadow-xs cursor-pointer"
+                            className="w-full inline-flex items-center justify-center gap-1.5 py-1.5 px-3 rounded-lg bg-[#124026] hover:bg-[#195935] text-white text-[11px] font-semibold transition-all shadow-xs cursor-pointer"
                           >
-                            <span>+</span>
+                            <span className="text-[#F3C23A]">+</span>
                             <span>
                               {selectedProducts.has(msg.knowledgeItem.productName)
                                 ? `Added "${msg.knowledgeItem.productName}" (In RFQ List)`
@@ -434,7 +434,7 @@ export const QualityAssistantChatbot: React.FC<QualityAssistantChatbotProps> = (
 
         {/* Quick Reply Chips Row */}
         <div className="px-3 py-2 bg-[#FAF7E8] border-t border-[#E8DFD0]/80 shrink-0">
-          <div className="text-[10px] uppercase font-bold text-[#8A5A00] tracking-wider mb-1.5 px-0.5">
+          <div className="text-[10px] uppercase font-bold text-[#124026] tracking-wider mb-1.5 px-0.5">
             Quick Specification Queries:
           </div>
           <div className="flex items-center gap-1.5 overflow-x-auto pb-1 no-scrollbar text-xs">
@@ -443,7 +443,7 @@ export const QualityAssistantChatbot: React.FC<QualityAssistantChatbotProps> = (
                 key={query}
                 type="button"
                 onClick={() => handleQuery(query)}
-                className="quick-chip whitespace-nowrap px-2.5 py-1 rounded-full bg-white hover:bg-[#8B4513] text-[#8B4513] hover:text-white border border-[#8B4513]/30 transition-all font-medium text-[11px] shadow-xs cursor-pointer"
+                className="quick-chip whitespace-nowrap px-2.5 py-1 rounded-full bg-white hover:bg-[#124026] text-[#124026] hover:text-white border border-[#124026]/30 transition-all font-medium text-[11px] shadow-xs cursor-pointer"
               >
                 {query}
               </button>
@@ -460,11 +460,11 @@ export const QualityAssistantChatbot: React.FC<QualityAssistantChatbotProps> = (
               placeholder="Ask about grade, oil content, moisture..."
               value={inputText}
               onChange={(e) => setInputText(e.target.value)}
-              className="flex-1 h-9 px-3.5 rounded-full bg-[#FAF4DD] border border-[#E8DFD0] text-xs text-[#1C1917] focus:outline-none focus:ring-1.5 focus:ring-[#8B4513] transition-all placeholder:text-stone-400"
+              className="flex-1 h-9 px-3.5 rounded-full bg-[#FAF4DD] border border-[#E8DFD0] text-xs text-[#0F291A] focus:outline-none focus:ring-1.5 focus:ring-[#124026] transition-all placeholder:text-stone-400"
             />
             <button
               type="submit"
-              className="w-9 h-9 rounded-full bg-[#8B4513] hover:bg-[#72380F] text-white flex items-center justify-center shrink-0 shadow-sm transition-all active:scale-95 cursor-pointer"
+              className="w-9 h-9 rounded-full bg-[#124026] hover:bg-[#195935] text-[#F3C23A] flex items-center justify-center shrink-0 shadow-sm transition-all active:scale-95 cursor-pointer"
               aria-label="Send Message"
             >
               <svg

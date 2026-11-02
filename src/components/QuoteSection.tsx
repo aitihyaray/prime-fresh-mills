@@ -151,91 +151,129 @@ export const QuoteSection: React.FC<QuoteSectionProps> = ({
         className="w-full max-w-7xl mx-auto px-6 lg:px-12 py-12 sm:py-16 scroll-mt-20"
         id="quote-section"
       >
+        {/* Ornamental Connected 4-Petal Floral Frieze Divider */}
+        <div className="arch-divider max-w-md mx-auto mb-10" aria-hidden="true">
+          <svg
+            width="132"
+            height="36"
+            viewBox="0 0 132 36"
+            fill="none"
+            className="shrink-0"
+          >
+            <path
+              d="M22 18 C17 11 17 5 22 0 C27 5 27 11 22 18 Z M22 18 C17 25 17 31 22 36 C27 31 27 25 22 18 Z M22 18 C14 13 6 13 0 18 C6 23 14 23 22 18 Z M22 18 C30 13 38 13 44 18 C38 23 30 23 22 18 Z"
+              stroke="#E4B329"
+              strokeWidth="1.6"
+              strokeLinejoin="round"
+              fill="rgba(228, 179, 41, 0.08)"
+            />
+            <circle cx="22" cy="18" r="2" fill="#064E3B" />
+            <path
+              d="M66 18 C61 11 61 5 66 0 C71 5 71 11 66 18 Z M66 18 C61 25 61 31 66 36 C71 31 71 25 66 18 Z M66 18 C58 13 50 13 44 18 C50 23 58 23 66 18 Z M66 18 C74 13 82 13 88 18 C82 23 74 23 66 18 Z"
+              stroke="#E4B329"
+              strokeWidth="1.8"
+              strokeLinejoin="round"
+              fill="rgba(228, 179, 41, 0.14)"
+            />
+            <circle cx="66" cy="18" r="2.4" fill="#064E3B" />
+            <path
+              d="M110 18 C105 11 105 5 110 0 C115 5 115 11 110 18 Z M110 18 C105 25 105 31 110 36 C115 31 115 25 110 18 Z M110 18 C102 13 94 13 88 18 C94 23 102 23 110 18 Z M110 18 C118 13 126 13 132 18 C126 23 118 23 110 18 Z"
+              stroke="#E4B329"
+              strokeWidth="1.6"
+              strokeLinejoin="round"
+              fill="rgba(228, 179, 41, 0.08)"
+            />
+            <circle cx="110" cy="18" r="2" fill="#064E3B" />
+          </svg>
+        </div>
+
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
           {/* Left Column: Commercial Contacts & Direct Desk */}
           <div className="lg:col-span-5 flex flex-col justify-between">
             <div className="space-y-4">
               <div>
-                <span className="text-[11px] font-bold text-[#8A5A00] uppercase tracking-wider block">
+                <span className="text-[11px] font-bold text-[#8A6A00] uppercase tracking-[0.2em] block">
                   Commercial Engagement
                 </span>
-                <h2 className="text-3xl sm:text-4xl text-[#1C1917] tracking-tight font-bold mt-1">
+                <h2 className="text-3xl sm:text-4xl text-[#064E3B] tracking-tight font-bold mt-1">
                   Request a Wholesale Quotation
                 </h2>
-                <p className="text-base text-[#44403C] mt-2 leading-relaxed">
-                  Connect directly with our commercial desk for real-time spot rates,
-                  scheduled quarterly contracts, and bulk packaging specifications.
+                <p className="text-base text-[#0B0902]/80 mt-2 leading-relaxed">
+                  Connect directly with our commercial desk for real-time spot
+                  rates, scheduled quarterly contracts, and bulk packaging
+                  specifications.
                 </p>
               </div>
 
               {/* Contact Cards */}
               <div className="space-y-3 pt-2">
                 <a
-                  className="flex items-center gap-4 p-4 rounded-xl bg-[#F5ECCF] hover:bg-[#F3E8C8] border border-[#EADFB4]/70 transition-colors shadow-xs"
+                  className="flex items-center gap-4 p-4 rounded-xl bg-white/95 hover:bg-white border-[1.5px] border-[#B8C7B3] hover:border-[#E4B329] transition-colors shadow-2xs"
                   href="tel:+919057292529"
                 >
-                  <div className="w-12 h-12 rounded-lg bg-[#8d4b00] text-white flex items-center justify-center shrink-0">
+                  <div className="w-12 h-12 rounded-lg bg-[#064E3B] text-[#E4B329] flex items-center justify-center shrink-0">
                     <span className="material-symbols-outlined text-[24px]">
                       call
                     </span>
                   </div>
                   <div>
-                    <span className="text-[11px] font-bold text-[#57534E] uppercase tracking-wider block">
+                    <span className="text-[11px] font-bold text-[#8A6A00] uppercase tracking-wider block">
                       Direct Commercial Desk
                     </span>
-                    <span className="text-xl text-[#1C1917] font-bold">
+                    <span className="text-xl text-[#064E3B] font-bold">
                       +91 90572 92529
                     </span>
-                    <span className="text-xs text-[#44403C] block">
+                    <span className="text-xs text-[#0B0902]/70 block">
                       Mon - Sat (9:00 AM - 7:00 PM IST)
                     </span>
                   </div>
                 </a>
 
                 <a
-                  className="flex items-center gap-4 p-4 rounded-xl bg-[#F5ECCF] hover:bg-[#F3E8C8] border border-[#EADFB4]/70 transition-colors shadow-xs"
+                  className="flex items-center gap-4 p-4 rounded-xl bg-white/95 hover:bg-white border-[1.5px] border-[#B8C7B3] hover:border-[#E4B329] transition-colors shadow-2xs"
                   href="mailto:Puneet2garg@gmail.com"
                 >
-                  <div className="w-12 h-12 rounded-lg bg-[#EDE1BF] border border-[#EADFB4]/60 text-[#8d4b00] flex items-center justify-center shrink-0">
+                  <div className="w-12 h-12 rounded-lg bg-[#E4B329]/20 border border-[#E4B329] text-[#064E3B] flex items-center justify-center shrink-0">
                     <span className="material-symbols-outlined text-[24px]">
                       mail
                     </span>
                   </div>
                   <div>
-                    <span className="text-[11px] font-bold text-[#57534E] uppercase tracking-wider block">
+                    <span className="text-[11px] font-bold text-[#8A6A00] uppercase tracking-wider block">
                       Procurement &amp; Inquiries
                     </span>
-                    <span className="text-lg sm:text-xl text-[#1C1917] font-bold break-all">
+                    <span className="text-lg sm:text-xl text-[#064E3B] font-bold break-all">
                       Puneet2garg@gmail.com
                     </span>
-                    <span className="text-xs text-[#44403C] block">
+                    <span className="text-xs text-[#0B0902]/70 block">
                       Official Quotations &amp; Billing Desk
                     </span>
                   </div>
                 </a>
 
                 {/* Corporate / Mill Facility Note */}
-                <div className="p-4 rounded-xl bg-[#FAF4DD] border border-[#EADFB4]/60 shadow-xs">
+                <div className="p-4 rounded-xl bg-white/95 border-[1.5px] border-[#B8C7B3] shadow-2xs">
                   <div className="flex items-center gap-2 mb-1">
-                    <span className="material-symbols-outlined text-[#8A5A00] text-[20px]">
+                    <span className="material-symbols-outlined text-[#064E3B] text-[20px]">
                       factory
                     </span>
-                    <span className="text-[11px] text-[#8A5A00] font-bold uppercase tracking-wider">
+                    <span className="text-[11px] text-[#064E3B] font-bold uppercase tracking-wider">
                       Manufacturing Unit
                     </span>
                   </div>
-                  <p className="text-sm text-[#1C1917] italic font-medium">
+                  <p className="text-sm text-[#0B0902] italic font-medium">
                     [Factory &amp; Corporate Address: To Be Updated / Confirmed]
                   </p>
-                  <p className="text-xs text-[#44403C] mt-2 leading-relaxed">
-                    Logistics: Dispatches routed via Pan-India multi-axle tankers,
-                    containerized freight, and local logistics freight hubs.
+                  <p className="text-xs text-[#0B0902]/75 mt-2 leading-relaxed">
+                    Logistics: Dispatches routed via Pan-India multi-axle
+                    tankers, containerized freight, and local logistics freight
+                    hubs.
                   </p>
                 </div>
               </div>
             </div>
 
-            <div className="mt-6 p-3 bg-[#F3E8C8] border border-[#EADFB4]/70 rounded-xl text-[#44403C] text-xs">
+            <div className="mt-6 p-3.5 bg-white/90 border border-dashed border-[#064E3B]/40 rounded-xl text-[#0B0902]/80 text-xs">
               <p>
                 Notice: All bulk consignments are weighed on verified commercial
                 weighbridges with electronic tare reconciliation slips.
@@ -243,29 +281,29 @@ export const QuoteSection: React.FC<QuoteSectionProps> = ({
             </div>
           </div>
 
-          {/* Right Column: Interactive Quotation Form */}
+          {/* Right Column: Interactive Quotation Form with Heritage Arched Gold Crown (.arch-quote-card) */}
           <div className="lg:col-span-7">
-            <div className="rounded-2xl bg-white border border-[#EADFB4]/80 p-6 md:p-8 shadow-lg relative min-h-[460px]">
-              <div className="mb-6">
-                <h3 className="text-2xl text-[#1C1917] font-bold">
+            <div className="arch-quote-card p-6 sm:p-8 md:pt-11 shadow-md relative min-h-[460px]">
+              <div className="mb-6 text-center sm:text-left">
+                <h3 className="text-2xl text-[#064E3B] font-bold">
                   Submit RFQ / Commercial Inquiry
                 </h3>
-                <p className="text-sm text-[#44403C] mt-1">
-                  Please provide estimated volumes and destination points for accurate
-                  freight factoring.
+                <p className="text-sm text-[#0B0902]/75 mt-1">
+                  Please provide estimated volumes and destination points for
+                  accurate freight factoring.
                 </p>
               </div>
 
               <form className="space-y-4" onSubmit={handleSubmit}>
                 <div>
                   <label
-                    className="block text-xs font-semibold text-[#1C1917] mb-1.5"
+                    className="block text-xs font-semibold text-[#064E3B] mb-1.5"
                     htmlFor="companyName"
                   >
                     Company / Enterprise Name *
                   </label>
                   <input
-                    className="w-full h-11 px-3 rounded-lg bg-[#FAF4DD] border border-[#EADFB4]/70 text-[#1C1917] text-sm focus:bg-white focus:ring-2 focus:ring-[#8d4b00] outline-none transition-all"
+                    className="w-full h-11 px-3 rounded-lg bg-[#FBF7ED] border-[1.5px] border-[#B8C7B3] text-[#0B0902] text-sm focus:bg-white focus:border-[#064E3B] focus:ring-2 focus:ring-[#E4B329] outline-none transition-all"
                     id="companyName"
                     placeholder="e.g., Agro Foods Pvt Ltd"
                     required
@@ -278,13 +316,13 @@ export const QuoteSection: React.FC<QuoteSectionProps> = ({
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
                     <label
-                      className="block text-xs font-semibold text-[#1C1917] mb-1.5"
+                      className="block text-xs font-semibold text-[#064E3B] mb-1.5"
                       htmlFor="phone"
                     >
                       Contact Number *
                     </label>
                     <input
-                      className="w-full h-11 px-3 rounded-lg bg-[#FAF4DD] border border-[#EADFB4]/70 text-[#1C1917] text-sm focus:bg-white focus:ring-2 focus:ring-[#8d4b00] outline-none transition-all"
+                      className="w-full h-11 px-3 rounded-lg bg-[#FBF7ED] border-[1.5px] border-[#B8C7B3] text-[#0B0902] text-sm focus:bg-white focus:border-[#064E3B] focus:ring-2 focus:ring-[#E4B329] outline-none transition-all"
                       id="phone"
                       placeholder="+91 XXXXX XXXXX"
                       required
@@ -295,13 +333,13 @@ export const QuoteSection: React.FC<QuoteSectionProps> = ({
                   </div>
                   <div>
                     <label
-                      className="block text-xs font-semibold text-[#1C1917] mb-1.5"
+                      className="block text-xs font-semibold text-[#064E3B] mb-1.5"
                       htmlFor="email"
                     >
                       Business Email *
                     </label>
                     <input
-                      className="w-full h-11 px-3 rounded-lg bg-[#FAF4DD] border border-[#EADFB4]/70 text-[#1C1917] text-sm focus:bg-white focus:ring-2 focus:ring-[#8d4b00] outline-none transition-all"
+                      className="w-full h-11 px-3 rounded-lg bg-[#FBF7ED] border-[1.5px] border-[#B8C7B3] text-[#0B0902] text-sm focus:bg-white focus:border-[#064E3B] focus:ring-2 focus:ring-[#E4B329] outline-none transition-all"
                       id="email"
                       placeholder="procurement@company.com"
                       required
@@ -316,32 +354,34 @@ export const QuoteSection: React.FC<QuoteSectionProps> = ({
                 <div className="space-y-1.5" id="multiProductSelectorContainer">
                   <div className="flex items-center justify-between">
                     <label
-                      className="block text-xs font-semibold text-[#1C1917]"
+                      className="block text-xs font-semibold text-[#064E3B]"
                       htmlFor="productDropdown"
                     >
                       Products of Interest *
                     </label>
                     <span
                       id="selectedCountText"
-                      className="text-xs text-[#44403C] font-medium"
+                      className="text-xs text-[#8A6A00] font-semibold"
                     >
-                      {count === 1 ? "1 product selected" : `${count} products selected`}
+                      {count === 1
+                        ? "1 product selected"
+                        : `${count} products selected`}
                     </span>
                   </div>
 
                   {/* Selected Chips Container */}
                   <div
                     id="productChipsBox"
-                    className={`min-h-[48px] p-2.5 rounded-lg bg-[#FAF4DD] border flex flex-wrap items-center gap-2 transition-all ${
+                    className={`min-h-[48px] p-2.5 rounded-lg bg-[#FBF7ED] border-[1.5px] flex flex-wrap items-center gap-2 transition-all ${
                       showProductError
-                        ? "ring-2 ring-red-500 border-red-400"
-                        : "border-[#EADFB4]/80"
+                        ? "ring-2 ring-[#7A1F2B] border-[#7A1F2B]"
+                        : "border-[#B8C7B3]"
                     }`}
                   >
                     {count === 0 ? (
                       <span
                         id="emptyChipsPlaceholder"
-                        className="text-xs text-[#44403C]/70 italic select-none py-1 px-1"
+                        className="text-xs text-[#0B0902]/60 italic select-none py-1 px-1"
                       >
                         Select products from catalog or dropdown below...
                       </span>
@@ -349,12 +389,12 @@ export const QuoteSection: React.FC<QuoteSectionProps> = ({
                       Array.from(selectedProducts).map((prod) => (
                         <span
                           key={prod}
-                          className="product-chip inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#8B4513]/10 border border-[#8B4513]/30 text-[#8B4513] text-xs font-semibold animate-chip-in transition-all hover:bg-[#8B4513]/15 select-none"
+                          className="product-chip inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#064E3B] border border-[#E4B329] text-[#FBF7ED] text-xs font-semibold animate-chip-in transition-all select-none"
                         >
                           <span>{prod}</span>
                           <button
                             type="button"
-                            className="w-4 h-4 rounded-full inline-flex items-center justify-center hover:bg-[#8B4513] hover:text-white transition-colors cursor-pointer ml-0.5 text-sm leading-none"
+                            className="w-4 h-4 rounded-full inline-flex items-center justify-center hover:bg-[#E4B329] hover:text-[#0B0902] transition-colors cursor-pointer ml-0.5 text-sm leading-none"
                             aria-label={`Remove ${prod}`}
                             onClick={(e) => {
                               e.stopPropagation();
@@ -381,7 +421,7 @@ export const QuoteSection: React.FC<QuoteSectionProps> = ({
                         }
                       }}
                       defaultValue=""
-                      className="w-full h-11 px-3 rounded-lg bg-[#FAF4DD] border border-[#EADFB4]/80 text-[#1C1917] text-sm focus:bg-white focus:ring-2 focus:ring-[#8d4b00] outline-none transition-all cursor-pointer"
+                      className="w-full h-11 px-3 rounded-lg bg-[#FBF7ED] border-[1.5px] border-[#B8C7B3] text-[#0B0902] text-sm focus:bg-white focus:border-[#064E3B] focus:ring-2 focus:ring-[#E4B329] outline-none transition-all cursor-pointer"
                     >
                       <option value="" disabled>
                         + Add another product from catalog...
@@ -398,13 +438,13 @@ export const QuoteSection: React.FC<QuoteSectionProps> = ({
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
                     <label
-                      className="block text-xs font-semibold text-[#1C1917] mb-1.5"
+                      className="block text-xs font-semibold text-[#064E3B] mb-1.5"
                       htmlFor="volume"
                     >
                       Order Volume *
                     </label>
                     <input
-                      className="w-full h-11 px-3 rounded-lg bg-[#FAF4DD] border border-[#EADFB4]/70 text-[#1C1917] text-sm focus:bg-white focus:ring-2 focus:ring-[#8d4b00] outline-none transition-all"
+                      className="w-full h-11 px-3 rounded-lg bg-[#FBF7ED] border-[1.5px] border-[#B8C7B3] text-[#0B0902] text-sm focus:bg-white focus:border-[#064E3B] focus:ring-2 focus:ring-[#E4B329] outline-none transition-all"
                       id="volume"
                       placeholder="e.g. 5 Metric Tons or 2,000 Liters"
                       required
@@ -415,13 +455,13 @@ export const QuoteSection: React.FC<QuoteSectionProps> = ({
                   </div>
                   <div>
                     <label
-                      className="block text-xs font-semibold text-[#1C1917] mb-1.5"
+                      className="block text-xs font-semibold text-[#064E3B] mb-1.5"
                       htmlFor="location"
                     >
                       Delivery Destination / Warehouse / Port *
                     </label>
                     <input
-                      className="w-full h-11 px-3 rounded-lg bg-[#FAF4DD] border border-[#EADFB4]/70 text-[#1C1917] text-sm focus:bg-white focus:ring-2 focus:ring-[#8d4b00] outline-none transition-all"
+                      className="w-full h-11 px-3 rounded-lg bg-[#FBF7ED] border-[1.5px] border-[#B8C7B3] text-[#0B0902] text-sm focus:bg-white focus:border-[#064E3B] focus:ring-2 focus:ring-[#E4B329] outline-none transition-all"
                       id="location"
                       placeholder="City, State / PIN Code / Freight Hub"
                       required
@@ -434,13 +474,13 @@ export const QuoteSection: React.FC<QuoteSectionProps> = ({
 
                 <div>
                   <label
-                    className="block text-xs font-semibold text-[#1C1917] mb-1.5"
+                    className="block text-xs font-semibold text-[#064E3B] mb-1.5"
                     htmlFor="specifications"
                   >
                     Technical Specs or Packaging Notes
                   </label>
                   <textarea
-                    className="w-full p-3 rounded-lg bg-[#FAF4DD] border border-[#EADFB4]/70 text-[#1C1917] text-sm focus:bg-white focus:ring-2 focus:ring-[#8d4b00] outline-none transition-all"
+                    className="w-full p-3 rounded-lg bg-[#FBF7ED] border-[1.5px] border-[#B8C7B3] text-[#0B0902] text-sm focus:bg-white focus:border-[#064E3B] focus:ring-2 focus:ring-[#E4B329] outline-none transition-all"
                     id="specifications"
                     placeholder="Enter packaging preferences (Barrels/Tins/Bags), moisture tolerance, or delivery timeline requirements..."
                     rows={3}
@@ -453,16 +493,18 @@ export const QuoteSection: React.FC<QuoteSectionProps> = ({
                 {validationAlert && (
                   <div
                     role="alert"
-                    className="flex items-start gap-2.5 p-3 rounded-xl bg-amber-50/90 border border-amber-300 text-[#8d4b00] text-xs font-medium shadow-xs animate-chip-in"
+                    className="flex items-start gap-2.5 p-3 rounded-xl bg-[#FFF7F6] border border-[#7A1F2B] text-[#7A1F2B] text-xs font-semibold shadow-2xs animate-chip-in"
                   >
                     <span className="material-symbols-outlined text-[18px] shrink-0 mt-0.5">
                       error
                     </span>
-                    <span className="flex-1 leading-relaxed">{validationAlert}</span>
+                    <span className="flex-1 leading-relaxed">
+                      {validationAlert}
+                    </span>
                     <button
                       type="button"
                       onClick={() => setValidationAlert(null)}
-                      className="text-[#8d4b00]/70 hover:text-[#8d4b00] font-bold text-sm leading-none px-1 cursor-pointer"
+                      className="text-[#7A1F2B]/70 hover:text-[#7A1F2B] font-bold text-sm leading-none px-1 cursor-pointer"
                       aria-label="Dismiss alert"
                     >
                       &times;
@@ -471,9 +513,9 @@ export const QuoteSection: React.FC<QuoteSectionProps> = ({
                 )}
 
                 {/* Form Action Buttons: Submit Quote Request & Inquire via WhatsApp */}
-                <div className="pt-2 grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div className="pt-2 w-full flex flex-col gap-3">
                   <button
-                    className="w-full inline-flex items-center justify-center text-sm font-semibold text-white bg-[#8d4b00] hover:bg-[#b15f00] h-12 px-5 rounded-full transition-all shadow-md hover:shadow-lg disabled:opacity-75 cursor-pointer"
+                    className="w-full flex items-center justify-center gap-2 whitespace-nowrap text-[15px] font-bold text-[#0B0902] bg-[#E4B329] hover:bg-[#EFC24A] border border-[#D4A11D] py-3 px-5 rounded-full transition-all shadow-sm hover:shadow-md disabled:opacity-75 cursor-pointer"
                     id="submitBtn"
                     type="submit"
                     disabled={isSubmitting}
@@ -481,7 +523,7 @@ export const QuoteSection: React.FC<QuoteSectionProps> = ({
                     <span>
                       {isSubmitting ? "Processing..." : "Submit Quote Request"}
                     </span>
-                    <span className="material-symbols-outlined ml-2 text-[20px]">
+                    <span className="material-symbols-outlined text-[20px] text-[#0B0902] shrink-0">
                       assignment_turned_in
                     </span>
                   </button>
@@ -490,15 +532,14 @@ export const QuoteSection: React.FC<QuoteSectionProps> = ({
                     type="button"
                     id="whatsappInquiryBtn"
                     onClick={handleWhatsAppInquiry}
-                    className="whatsapp-glass-btn w-full inline-flex items-center justify-center gap-2.5 text-sm font-semibold h-12 px-5 rounded-full cursor-pointer"
+                    className="whatsapp-glass-btn w-full flex items-center justify-center gap-2 whitespace-nowrap text-[15px] font-semibold py-3 px-5 rounded-full cursor-pointer"
                   >
-                    {/* Official WhatsApp SVG Icon */}
                     <svg
-                      className="w-5 h-5 fill-[#128C7E] shrink-0"
+                      className="w-5 h-5 fill-current shrink-0"
                       viewBox="0 0 24 24"
                       aria-hidden="true"
                     >
-                      <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zm-3.423-14.416c-6.627 0-12 5.373-12 12 0 2.625.846 5.059 2.284 7.033l-1.492 5.451 5.587-1.465c1.911 1.254 4.191 1.981 6.645 1.981 6.627 0 12-5.373 12-12s-5.397-12-12.024-12z" />
+                      <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
                     </svg>
                     <span>Inquire via WhatsApp</span>
                   </button>
@@ -508,25 +549,27 @@ export const QuoteSection: React.FC<QuoteSectionProps> = ({
               {/* Toast Notification Overlay */}
               {isSubmitted && (
                 <div
-                  className="absolute inset-0 bg-[#FFFCF0]/95 backdrop-blur-sm rounded-2xl flex flex-col items-center justify-center p-6 text-center z-20 animate-fade-in"
+                  className="absolute inset-0 bg-[#FBF7ED]/96 backdrop-blur-sm rounded-[inherit] flex flex-col items-center justify-center p-6 text-center z-20 animate-fade-in"
                   id="toastNotification"
                 >
-                  <div className="w-16 h-16 rounded-full bg-[#FEE6B3] border border-[#EADFB4] text-[#8d4b00] flex items-center justify-center mb-3 shadow-md animate-bounce">
+                  <div className="w-16 h-16 rounded-full bg-[#064E3B] border-2 border-[#E4B329] text-[#E4B329] flex items-center justify-center mb-3 shadow-md animate-bounce">
                     <span className="material-symbols-outlined text-[36px]">
                       check_circle
                     </span>
                   </div>
-                  <h4 className="text-2xl text-[#1C1917] font-bold">
+                  <h4 className="text-2xl text-[#064E3B] font-bold">
                     Quotation Request Logged
                   </h4>
-                  <p className="text-sm sm:text-base text-[#44403C] max-w-md mt-2 leading-relaxed">
-                    Thank you! Your commercial inquiry has been logged on our desk.
-                    Our sales team will follow up via{" "}
-                    <strong className="text-[#1C1917]">Puneet2garg@gmail.com</strong>{" "}
+                  <p className="text-sm sm:text-base text-[#0B0902]/80 max-w-md mt-2 leading-relaxed">
+                    Thank you! Your commercial inquiry has been logged on our
+                    desk. Our sales team will follow up via{" "}
+                    <strong className="text-[#064E3B]">
+                      Puneet2garg@gmail.com
+                    </strong>{" "}
                     or phone directly.
                   </p>
                   <button
-                    className="mt-6 px-6 py-2 rounded-lg bg-[#F5ECCF] hover:bg-[#F3E8C8] border border-[#EADFB4] text-[#1C1917] text-xs font-semibold transition-colors cursor-pointer"
+                    className="mt-6 px-6 py-2 rounded-full bg-[#064E3B] text-[#FBF7ED] hover:bg-[#04382A] text-xs font-semibold transition-colors cursor-pointer"
                     onClick={handleReset}
                   >
                     Submit Another Inquiry

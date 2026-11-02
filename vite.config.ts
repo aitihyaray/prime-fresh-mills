@@ -9,8 +9,8 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 /**
- * Copies root-level static assets (237 ezgif-frame-*.jpg files, logo.png,
- * mustard_oil_mockup.png, natural-sesame-seed.jpg, and _redirects) into dist/
+ * Copies root-level static assets (logo.png, mustard_oil_mockup.png,
+ * natural-sesame-seed.jpg, and _redirects) into dist/
  * during production builds so Netlify serves every asset reliably.
  */
 function copyRootStaticAssets(): Plugin {

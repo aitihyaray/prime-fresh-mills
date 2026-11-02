@@ -5,28 +5,106 @@
     scroll-behavior: smooth;
   }
   body {
-    background-color: #FAF7E8;
-    color: #1C1917;
+    background-color: #FBF7ED;
+    color: #0B0902;
     font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     overscroll-behavior: none;
   }
 }
 
-/* Custom theme colors */
+/* Deep Emerald (#064E3B), Mustard Gold (#E4B329), Warm Cream (#FBF7ED) & Sage (#B8C7B3) Theme */
 :root {
-  --color-primary: #8d4b00;
-  --color-primary-container: #b15f00;
-  --color-on-primary: #ffffff;
-  --color-tertiary: #8A5A00;
-  --color-surface: #FAF7E8;
-  --color-surface-container: #F5ECCF;
-  --color-surface-container-low: #FAF4DD;
-  --color-surface-container-high: #F3E8C8;
-  --color-surface-container-highest: #EDE1BF;
+  --green: #064E3B;
+  --green-deep: #04382A;
+  --gold: #E4B329;
+  --gold-hover: #EFC24A;
+  --gold-text: #8A6A00;
+  --cream: #FBF7ED;
+  --sage: #B8C7B3;
+  --ink: #0B0902;
+  --maroon: #7A1F2B;
+  --terracotta: #A24A2D;
+  --white: #FFFFFF;
+
+  --color-primary: #064E3B;
+  --color-primary-container: #04382A;
+  --color-accent-yellow: #8A6A00;
+  --color-accent-yellow-bright: #E4B329;
+  --color-on-primary: #FBF7ED;
+  --color-tertiary: #A24A2D;
+  --color-surface: #FBF7ED;
+  --color-surface-container: #FBF7ED;
+  --color-surface-container-low: #FBF7ED;
+  --color-surface-container-high: #F2ECDC;
+  --color-surface-container-highest: #E6DEC8;
   --color-surface-container-lowest: #FFFFFF;
-  --color-on-surface-variant: #44403C;
+  --color-on-surface-variant: #3D4A41;
 }
 
+/* Heritage Floral Phool-Jaali Lattice Pattern (Connected 4-Petal Pointed Quatrefoils) */
+.jaali-pattern {
+  background-color: #FBF7ED;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='56' viewBox='0 0 56 56' fill='none' stroke='%23e4b329' stroke-opacity='.28' stroke-width='1.2' stroke-linejoin='round'%3E%3Cpath d='M28 28 C21 19 21 9 28 0 C35 9 35 19 28 28 Z M28 28 C21 37 21 47 28 56 C35 47 35 37 28 28 Z M28 28 C19 21 9 21 0 28 C9 35 19 35 28 28 Z M28 28 C37 21 47 21 56 28 C47 35 37 35 28 28 Z'/%3E%3Ccircle cx='28' cy='28' r='1.8' fill='%23e4b329' fill-opacity='.28' stroke='none'/%3E%3C/svg%3E");
+}
+
+/* ==========================================================================
+   DRIFTING MUSTARD FLOWER BLOOMS & BOTANICAL LEAVES ANIMATION
+   ========================================================================== */
+.petals {
+  pointer-events: none;
+  z-index: 1;
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.petal {
+  opacity: 0.85;
+  will-change: transform;
+  animation: fall linear infinite;
+  position: absolute;
+  top: -40px;
+}
+
+.petal svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-40px) rotate(0deg);
+  }
+  50% {
+    transform: translate(40px, 50vh) rotate(180deg);
+  }
+  100% {
+    transform: translate(-20px, 105vh) rotate(360deg);
+  }
+}
+
+@keyframes catalogFall {
+  0% {
+    transform: translateY(-40px) rotate(0deg);
+  }
+  50% {
+    transform: translate(36px, 600px) rotate(180deg);
+  }
+  100% {
+    transform: translate(-24px, 1250px) rotate(360deg);
+  }
+}
+
+.petal--catalog {
+  opacity: 0.55;
+  will-change: transform;
+  animation: catalogFall linear infinite;
+  position: absolute;
+  top: -40px;
+}
+
+/* Product Card '+' Toggle Button */
 .rfq-toggle-btn {
   width: 40px;
   height: 40px;
@@ -36,109 +114,111 @@
   align-items: center;
   justify-content: center;
   padding: 0;
-  background: rgba(254, 243, 199, 0.55);
-  backdrop-filter: blur(12px) saturate(180%);
-  -webkit-backdrop-filter: blur(12px) saturate(180%);
-  border: 1px solid rgba(146, 64, 14, 0.25);
-  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.6), 0 2px 6px rgba(0, 0, 0, 0.05);
-  color: #8B4513;
+  background: #FBF7ED;
+  border: 1.5px solid #B8C7B3;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.8), 0 2px 6px rgba(6, 78, 59, 0.06);
+  color: #064E3B;
   transition: all 0.2s ease;
 }
+
 .rfq-toggle-btn:hover:not(.is-selected) {
-  background: rgba(254, 243, 199, 0.85);
-  border-color: rgba(146, 64, 14, 0.4);
-  box-shadow: inset 0 1px 1.5px rgba(255, 255, 255, 0.8), 0 4px 10px rgba(139, 69, 19, 0.12);
+  background: rgba(228, 179, 41, 0.18);
+  border-color: #E4B329;
+  box-shadow: 0 4px 10px rgba(6, 78, 59, 0.12);
   transform: scale(1.05);
 }
+
 .rfq-toggle-btn.is-selected {
-  background: rgba(139, 69, 19, 0.9) !important;
-  backdrop-filter: blur(12px) saturate(180%) !important;
-  -webkit-backdrop-filter: blur(12px) saturate(180%) !important;
-  color: #FFFFFF !important;
-  border: 1px solid rgba(255, 255, 255, 0.35) !important;
-  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.4), 0 4px 12px rgba(139, 69, 19, 0.28) !important;
+  background: #064E3B !important;
+  color: #E4B329 !important;
+  border: 1.5px solid #E4B329 !important;
+  box-shadow: 0 4px 12px rgba(6, 78, 59, 0.25) !important;
 }
+
 .rfq-toggle-btn.bounce-pop {
   animation: rfqBounce 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
+
 @keyframes rfqBounce {
   0% { transform: scale(0.85); }
   50% { transform: scale(1.2); }
   100% { transform: scale(1); }
 }
+
 @keyframes chipIn {
   from { opacity: 0; transform: scale(0.85); }
   to { opacity: 1; transform: scale(1); }
 }
+
 .animate-chip-in {
   animation: chipIn 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
+
 @keyframes rfqPulseGlow {
-  0% { box-shadow: 0 0 0 0 rgba(139, 69, 19, 0.5); }
-  70% { box-shadow: 0 0 0 8px rgba(139, 69, 19, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(139, 69, 19, 0); }
+  0% { box-shadow: 0 0 0 0 rgba(228, 179, 41, 0.6); }
+  70% { box-shadow: 0 0 0 8px rgba(228, 179, 41, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(228, 179, 41, 0); }
 }
+
 .pulse-glow {
   animation: rfqPulseGlow 0.8s ease-out;
 }
-/* Apple Frosted Glassmorphic Header CTA ("Get Quote") */
+
+/* Mustard Gold Header CTA ("Get Quote" / "Request a Quote") */
 .header-cta-glass {
   border-radius: 9999px;
   white-space: nowrap;
   font-size: 13px;
-  font-weight: 500;
-  padding: 8px 16px;
-  background: rgba(140, 75, 10, 0.15);
-  backdrop-filter: blur(16px) saturate(180%);
-  -webkit-backdrop-filter: blur(16px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.35), 0 4px 12px rgba(0, 0, 0, 0.08);
-  color: #5c3008;
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  font-weight: 700;
+  padding: 8px 18px;
+  background: #E4B329;
+  border: 1.5px solid #D4A11D;
+  box-shadow: 0 4px 12px rgba(6, 78, 59, 0.14);
+  color: #0B0902;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .header-cta-glass:hover {
-  background: rgba(140, 75, 10, 0.22);
-  border-color: rgba(255, 255, 255, 0.6);
-  box-shadow: inset 0 1px 1.5px 0 rgba(255, 255, 255, 0.45), 0 6px 16px rgba(140, 75, 10, 0.14);
+  background: #EFC24A;
+  border-color: #E4B329;
+  box-shadow: 0 6px 16px rgba(6, 78, 59, 0.22);
   transform: translateY(-1px);
 }
 
 .header-cta-glass:active {
   transform: scale(0.96);
-  background: rgba(140, 75, 10, 0.28);
 }
 
 @media (min-width: 640px) {
   .header-cta-glass {
     font-size: 14px;
-    font-weight: 600;
-    padding: 9px 20px;
+    font-weight: 700;
+    padding: 9px 22px;
   }
 }
 
-/* Apple Glassmorphic Floating Chat Widget Button (Brown Tint) */
+/* Floating Chat Widget Button (Deep Emerald + Mustard Gold Border) */
 .chat-launcher-glass {
   border-radius: 50%;
-  background: rgba(146, 64, 14, 0.65);
+  background: #064E3B;
   backdrop-filter: blur(16px) saturate(180%);
   -webkit-backdrop-filter: blur(16px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  box-shadow: inset 0 1px 1.5px rgba(255, 255, 255, 0.4), 0 8px 20px rgba(92, 40, 10, 0.25);
+  border: 2px solid #E4B329;
+  box-shadow: 0 8px 22px rgba(4, 56, 42, 0.32);
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .chat-launcher-glass:hover {
-  background: rgba(146, 64, 14, 0.78);
-  border-color: rgba(255, 255, 255, 0.5);
-  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.5), 0 12px 28px rgba(92, 40, 10, 0.32);
+  background: #04382A;
+  border-color: #EFC24A;
+  box-shadow: 0 12px 28px rgba(4, 56, 42, 0.42);
   transform: scale(1.05);
 }
 
 .chat-launcher-glass:active {
   transform: scale(0.95);
-  background: rgba(120, 53, 15, 0.85);
 }
+
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
@@ -146,6 +226,7 @@
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
 @keyframes dotBounce {
   0%, 80%, 100% { transform: translateY(0); }
   40% { transform: translateY(-5px); }
@@ -155,59 +236,148 @@
 .animate-dot-3 { animation: dotBounce 1.2s infinite ease-in-out 0.4s; }
 
 /* ==========================================================================
-   MOBILE-ONLY HERO ANIMATION FIXES (<= 768px)
-   Strictly scoped to mobile devices; zero changes on desktop viewports.
+   DEEP EMERALD & MUSTARD GOLD HERO + ARCHITECTURAL ORNAMENT
    ========================================================================== */
-@media (max-width: 768px) {
-  #animation-sticky-container {
-    padding-top: 72px !important;
-    padding-bottom: 16px !important;
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    margin: 0 auto !important;
-    width: 100vw !important;
-    max-width: 100vw !important;
-    left: 0 !important;
-    right: 0 !important;
-    box-sizing: border-box !important;
+@keyframes heroRiseUp {
+  0% {
+    opacity: 0;
+    transform: translateY(18px);
   }
-
-  #animation-frame-card {
-    /* Full immersive dimensions filling container, no small restrictions or white borders */
-    width: min(94vw, 1240px) !important;
-    height: min(calc(100vh - 100px), 760px) !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    margin: 0 auto !important;
-    left: auto !important;
-    right: auto !important;
-    transform: none !important;
-    border-radius: 14px !important;
-    box-sizing: border-box !important;
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
+}
 
-  #animation-canvas {
-    display: block !important;
-    margin: 0 auto !important;
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
-    object-position: 55% center !important;
-    border-radius: 14px !important;
+.hero-entrance-1 {
+  opacity: 0;
+  animation: heroRiseUp 0.65s cubic-bezier(0.16, 1, 0.3, 1) 0.04s forwards;
+}
+
+.hero-entrance-2 {
+  opacity: 0;
+  animation: heroRiseUp 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.14s forwards;
+}
+
+.hero-entrance-3 {
+  opacity: 0;
+  animation: heroRiseUp 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.24s forwards;
+}
+
+.hero-entrance-4 {
+  opacity: 0;
+  animation: heroRiseUp 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.34s forwards;
+}
+
+.font-display-serif {
+  font-family: 'Cormorant Garamond', 'Instrument Serif', Georgia, serif;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+/* Deep Emerald Green Hero Gradient */
+.bg-emerald-hero {
+  background:
+    radial-gradient(circle at 78% 30%, rgba(228, 179, 41, 0.16) 0%, rgba(4, 56, 42, 0) 55%),
+    linear-gradient(105deg, #04382A 0%, #064E3B 55%, #075943 100%);
+}
+
+/* Mustard Gold Primary Hero Button */
+.btn-hero-primary-amber {
+  background: #E4B329;
+  color: #0B0902;
+  border: 1.5px solid #EFC24A;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.22);
+  font-weight: 700;
+  padding: 13px 28px;
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-hero-primary-amber:hover {
+  background: #EFC24A;
+  box-shadow: 0 10px 26px rgba(228, 179, 41, 0.32);
+  transform: translateY(-1px);
+}
+
+/* Warm Cream Ghost Secondary Hero Button (on Deep Emerald Hero) */
+.btn-hero-secondary-glass {
+  background: rgba(251, 247, 237, 0.08);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1.5px solid #FBF7ED;
+  color: #FBF7ED;
+  font-weight: 600;
+  padding: 13px 28px;
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-hero-secondary-glass:hover {
+  background: rgba(251, 247, 237, 0.18);
+  border-color: #E4B329;
+  color: #E4B329;
+  transform: translateY(-1px);
+}
+
+/* Heritage Arched Crown Card for Quote Form (.qf inspired) */
+.arch-quote-card {
+  background: #FFFFFF;
+  border: 1.5px solid #B8C7B3;
+  border-top: 4px solid #E4B329;
+  border-radius: 120px 120px 20px 20px / 36px 36px 20px 20px;
+}
+
+@media (max-width: 640px) {
+  .arch-quote-card {
+    border-radius: 64px 64px 18px 18px / 24px 24px 18px 18px;
+  }
+}
+
+/* Ornamental Architectural Divider */
+.arch-divider {
+  color: #E4B329;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.arch-divider::before,
+.arch-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.55;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .petal,
+  .petal--catalog {
+    animation: none !important;
+    top: 12%;
+  }
+  .petal:nth-child(n+6),
+  .petal--catalog:nth-child(n+6) {
+    display: none;
   }
 }
 
 /* ==========================================================================
-   APPLE FROSTED GLASS SLIDE-OUT NAVIGATION DRAWER
+   SLIDE-OUT NAVIGATION DRAWER
    ========================================================================== */
 .drawer-backdrop {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(4, 56, 42, 0.45);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   z-index: 190;
@@ -222,11 +392,11 @@
   width: 75vw;
   max-width: 300px;
   z-index: 200;
-  background: rgba(255, 252, 245, 0.85);
+  background: rgba(251, 247, 237, 0.96);
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
-  border-right: 1px solid rgba(255, 255, 255, 0.5);
-  box-shadow: 10px 0 25px rgba(0, 0, 0, 0.1);
+  border-right: 1.5px solid #B8C7B3;
+  box-shadow: 10px 0 28px rgba(4, 56, 42, 0.18);
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -234,49 +404,52 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: 19px;
-  font-weight: 500;
+  font-size: 18px;
+  font-weight: 600;
   padding: 14px 20px;
   border-radius: 14px;
-  color: #1C1917;
+  color: #064E3B;
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .drawer-nav-link:hover {
-  background: rgba(141, 75, 0, 0.1);
-  color: #8d4b00;
+  background: rgba(6, 78, 59, 0.08);
+  color: #04382A;
   transform: translateX(4px);
 }
 
 .drawer-nav-link:active {
-  background: rgba(141, 75, 0, 0.18);
+  background: rgba(6, 78, 59, 0.14);
   transform: scale(0.98);
 }
 
 /* ==========================================================================
-   APPLE FROSTED EMERALD GLASS WHATSAPP INQUIRY BUTTON
+   DEEP EMERALD WHATSAPP INQUIRY BUTTON
    ========================================================================== */
 .whatsapp-glass-btn {
-  background: rgba(37, 211, 102, 0.2);
-  border: 1px solid rgba(37, 211, 102, 0.4);
-  backdrop-filter: blur(12px) saturate(180%);
-  -webkit-backdrop-filter: blur(12px) saturate(180%);
-  box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.5), 0 4px 12px rgba(37, 211, 102, 0.16);
-  color: #0d5324;
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  white-space: nowrap;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 12px 20px;
+  background: rgba(6, 78, 59, 0.06);
+  border: 1.5px solid #064E3B;
+  color: #064E3B;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .whatsapp-glass-btn:hover {
-  background: rgba(37, 211, 102, 0.28);
-  border-color: rgba(37, 211, 102, 0.6);
-  box-shadow: inset 0 1px 1.5px 0 rgba(255, 255, 255, 0.65), 0 6px 18px rgba(37, 211, 102, 0.25);
+  background: rgba(6, 78, 59, 0.12);
+  border-color: #04382A;
+  color: #04382A;
   transform: translateY(-1px);
 }
 
 .whatsapp-glass-btn:active {
-  background: rgba(37, 211, 102, 0.35);
+  background: rgba(6, 78, 59, 0.18);
   transform: scale(0.98);
 }
-
-
-

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Header } from "./components/Header";
-import { HeroAnimation } from "./components/HeroAnimation";
+import { HeroAnimation, AmbientBotanicalLayer } from "./components/HeroAnimation";
 import { ProductCatalog } from "./components/ProductCatalog";
 import { QuoteSection } from "./components/QuoteSection";
 import { FloatingRfqPill } from "./components/FloatingRfqPill";
@@ -100,44 +100,49 @@ export const App: React.FC = () => {
 
   return (
     <ErrorBoundary>
-      <div className="bg-[#FAF7E8] font-sans text-[#1C1917] antialiased selection:bg-[#FEE6B3] selection:text-[#2f1500] min-h-screen">
+      <div className="bg-[#FBF7ED] font-sans text-[#0B0902] antialiased selection:bg-[#E4B329]/30 selection:text-[#064E3B] min-h-screen">
         <Header onNavigate={handleNavigate} />
 
-        <main className="w-full bg-[#FAF7E8] min-h-screen">
+        <main className="w-full bg-[#FBF7ED] min-h-screen">
           <div className="flex flex-col w-full">
-            {/* SECTION 1: HERO SHOWCASE (Mustard Oil Bottle & Pouch 3D Scroll Animation) */}
+            {/* SECTION 1: DEEP EMERALD & MUSTARD GOLD HERO SHOWCASE */}
             <ErrorBoundary>
               <HeroAnimation />
             </ErrorBoundary>
 
-            {/* CATALOG & LOWER SECTIONS FLOW */}
+            {/* CATALOG & LOWER SECTIONS FLOW WITH HERITAGE JAALI LATTICE & AMBIENT FLOWERS/WAVES */}
             <div
               id="content-flow-container"
-              className="relative w-full z-20 bg-[#FBF6EC]"
+              className="jaali-pattern relative w-full z-20 bg-[#FBF7ED] overflow-hidden"
             >
-              {/* SECTION 2: PRODUCT CATALOG & SPECIFICATION MATRIX */}
-              <ErrorBoundary>
-                <ProductCatalog
-                  selectedProducts={selectedProducts}
-                  onToggleProduct={toggleProduct}
-                  onInquire={handleInquire}
-                />
-              </ErrorBoundary>
+              {/* Drifting Mustard Flowers & Subtle Golden Waves in Catalog/Quote Flow */}
+              <AmbientBotanicalLayer mode="catalog" />
 
-              {/* SECTION 3: B2B QUOTATION FORM & PROCUREMENT DESK */}
-              <ErrorBoundary>
-                <QuoteSection
-                  selectedProducts={selectedProducts}
-                  onAddProduct={addProduct}
-                  onRemoveProduct={removeProduct}
-                  onClearProducts={clearProducts}
-                />
-              </ErrorBoundary>
+              <div className="relative z-10">
+                {/* SECTION 2: PRODUCT CATALOG & SPECIFICATION MATRIX */}
+                <ErrorBoundary>
+                  <ProductCatalog
+                    selectedProducts={selectedProducts}
+                    onToggleProduct={toggleProduct}
+                    onInquire={handleInquire}
+                  />
+                </ErrorBoundary>
 
-              {/* FOOTER */}
-              <ErrorBoundary>
-                <Footer onNavigate={handleNavigate} />
-              </ErrorBoundary>
+                {/* SECTION 3: B2B QUOTATION FORM & PROCUREMENT DESK */}
+                <ErrorBoundary>
+                  <QuoteSection
+                    selectedProducts={selectedProducts}
+                    onAddProduct={addProduct}
+                    onRemoveProduct={removeProduct}
+                    onClearProducts={clearProducts}
+                  />
+                </ErrorBoundary>
+
+                {/* FOOTER WITH ARCHITECTURAL SKYLINE TRANSITION */}
+                <ErrorBoundary>
+                  <Footer onNavigate={handleNavigate} />
+                </ErrorBoundary>
+              </div>
             </div>
           </div>
 

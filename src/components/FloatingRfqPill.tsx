@@ -23,19 +23,19 @@ export const FloatingRfqPill: React.FC<FloatingRfqPillProps> = ({
       <button
         type="button"
         onClick={onScrollToRfq}
-        className="group flex items-center gap-3 px-5 py-3 rounded-full bg-[#8B4513] hover:bg-[#72380F] text-white shadow-xl hover:shadow-2xl border border-white/20 transition-all duration-200 active:scale-95 cursor-pointer"
+        className="group flex items-center gap-3 px-5 py-3 rounded-full bg-[#064E3B] hover:bg-[#04382A] text-[#FBF7ED] shadow-xl hover:shadow-2xl border-2 border-[#E4B329] transition-all duration-200 active:scale-95 cursor-pointer"
         aria-label="View RFQ with selected items"
       >
         <span
           id="rfqBadgeCount"
-          className="w-6 h-6 rounded-full bg-white text-[#8B4513] text-xs font-bold flex items-center justify-center shadow-inner font-mono"
+          className="w-6 h-6 rounded-full bg-[#E4B329] text-[#0B0902] text-xs font-bold flex items-center justify-center shadow-inner font-mono"
         >
           {selectedCount}
         </span>
         <span className="font-semibold text-sm tracking-wide">
           Items Selected — View RFQ
         </span>
-        <span className="text-base transition-transform group-hover:translate-x-1">
+        <span className="text-base text-[#E4B329] transition-transform group-hover:translate-x-1">
           →
         </span>
       </button>
