@@ -134,9 +134,6 @@ export const ProductCatalog: React.FC<ProductCatalogProps> = ({
                       onClick={() => onInquire(product.productName)}
                     >
                       <span>Inquire</span>
-                      <span className="ml-1.5 text-[11px] text-[#E4B329] leading-none">
-                        ▶
-                      </span>
                     </button>
                     <button
                       type="button"
@@ -239,9 +236,6 @@ export const ProductCatalog: React.FC<ProductCatalogProps> = ({
                       onClick={() => onInquire(product.productName)}
                     >
                       <span>Inquire</span>
-                      <span className="ml-1.5 text-[11px] text-[#E4B329] leading-none">
-                        ▶
-                      </span>
                     </button>
                     <button
                       type="button"

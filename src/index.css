@@ -164,6 +164,22 @@
   animation: rfqPulseGlow 0.8s ease-out;
 }
 
+/* Glassmorphic Rounded Header Pill & Inner Nav Pill */
+.header-glass-pill {
+  background: rgba(251, 248, 242, 0.6);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-bottom: 1px solid rgba(220, 215, 200, 0.25);
+  box-shadow: 0 8px 24px rgba(4, 56, 42, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.65);
+}
+
+.header-nav-pill {
+  background: rgba(255, 255, 255, 0.42);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
 /* Mustard Gold Header CTA ("Get Quote" / "Request a Quote") */
 .header-cta-glass {
   border-radius: 9999px;
@@ -328,18 +344,46 @@
   transform: translateY(-1px);
 }
 
-/* Heritage Arched Crown Card for Quote Form (.qf inspired) */
-.arch-quote-card {
-  background: #FFFFFF;
-  border: 1.5px solid #B8C7B3;
-  border-top: 4px solid #E4B329;
-  border-radius: 120px 120px 20px 20px / 36px 36px 20px 20px;
+/* Traditional Jharokha Window Frame for Quote Form */
+.jharokha-window-wrapper {
+  filter: drop-shadow(0 16px 32px rgba(4, 56, 42, 0.14));
 }
 
-@media (max-width: 640px) {
-  .arch-quote-card {
-    border-radius: 64px 64px 18px 18px / 24px 24px 18px 18px;
-  }
+.jharokha-outer-pillars {
+  margin-left: 3%;
+  margin-right: 3%;
+  background: linear-gradient(
+    90deg,
+    #FFFDF7 0%,
+    #FFFDF7 2.394%,
+    #F3DFB6 2.394%,
+    #F3DFB6 4.521%,
+    #FFFFFF 4.521%,
+    #FFFFFF 95.479%,
+    #F3DFB6 95.479%,
+    #F3DFB6 97.606%,
+    #FFFDF7 97.606%,
+    #FFFDF7 100%
+  );
+  border-left: 2.2px solid #8A6A00;
+  border-right: 2.2px solid #8A6A00;
+  position: relative;
+}
+
+.jharokha-inner-chamber {
+  margin-left: 4.521%;
+  margin-right: 4.521%;
+  background: #FFFFFF;
+  border-left: 2px solid #8A6A00;
+  border-right: 2px solid #8A6A00;
+  position: relative;
+}
+
+.jharokha-inner-chamber input::placeholder,
+.jharokha-inner-chamber textarea::placeholder {
+  color: rgba(11, 9, 2, 0.16) !important;
+  opacity: 1 !important;
+  font-weight: 400;
 }
 
 /* Ornamental Architectural Divider */

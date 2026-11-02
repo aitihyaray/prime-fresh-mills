@@ -344,33 +344,37 @@ export const HeroAnimation: React.FC = () => {
       {/* 1. Combined Drifting Mustard Flowers + Subtle Golden Waves Layer */}
       <AmbientBotanicalLayer mode="hero" />
 
-      {/* 2. Decorative Heritage Cusped Jharokha Arch Filigree (Right Architectural Watermark) */}
+      {/* 2. Subtle Golden Line-Art Jharokha Watermark on Right Edge */}
       <svg
         aria-hidden="true"
         viewBox="0 0 360 480"
-        className="pointer-events-none absolute -right-12 bottom-0 h-[86%] w-auto opacity-18 hidden md:block"
+        className="pointer-events-none absolute right-2 lg:right-10 bottom-0 h-[68%] w-auto opacity-16 hidden md:block"
         fill="none"
       >
         <path
-          d="M24 470V210C24 140 72 95 112 72C142 54 166 28 180 12C194 28 218 54 248 72C288 95 336 140 336 210V470"
+          d="M36 470V220C36 154 80 112 118 90C146 73 168 48 180 32C192 48 214 73 242 90C280 112 324 154 324 220V470"
           stroke="#E4B329"
-          strokeWidth="2.5"
+          strokeWidth="2"
         />
         <path
-          d="M42 470V216C42 154 84 112 122 90C148 74 168 52 180 36C192 52 212 74 238 90C276 112 318 154 318 216V470"
+          d="M54 470V226C54 168 92 128 128 106C152 91 170 70 180 54C190 70 208 91 232 106C268 128 306 168 306 226V470"
           stroke="#E4B329"
-          strokeWidth="1.2"
+          strokeWidth="1.1"
           strokeDasharray="6 6"
         />
-        <circle cx="180" cy="96" r="14" stroke="#E4B329" strokeWidth="1.5" />
-        <path d="M180 74L190 96L180 118L170 96Z" fill="#E4B329" fillOpacity="0.35" />
+        <circle cx="180" cy="110" r="12" stroke="#E4B329" strokeWidth="1.4" />
+        <path
+          d="M180 90L188 110L180 130L172 110Z"
+          fill="#E4B329"
+          fillOpacity="0.3"
+        />
       </svg>
 
       {/* 3. Main Hero Content Block */}
       <div className="relative z-10 mx-auto w-full max-w-7xl px-6 lg:px-12 pt-32 sm:pt-36 pb-20 sm:pb-24">
         <div className="max-w-3xl flex flex-col items-start text-left">
           {/* Mustard Gold Eyebrow Kicker */}
-          <div className="hero-entrance-1 inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-[#04382A]/80 border border-[#E4B329]/45 backdrop-blur-md shadow-xs">
+          <div className="hero-entrance-1 inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-[#04382A]/80 border border-[#E4B329]/45 backdrop-blur-xs shadow-xs">
             <span className="text-[11px] sm:text-xs font-semibold uppercase tracking-[0.2em] text-[#E4B329]">
               Direct From Our Extraction Mill · Bulk Agro-Commodities
             </span>
@@ -399,57 +403,177 @@ export const HeroAnimation: React.FC = () => {
             institutional buyers.
           </p>
 
-          {/* 3 Mill Capability Pillars */}
-          <div className="hero-entrance-3 mt-6 grid grid-cols-1 sm:grid-cols-3 gap-3 w-full max-w-2xl">
-            <div className="flex items-center gap-2.5 px-3.5 py-2.5 rounded-xl bg-[#04382A]/75 border border-[#E4B329]/35 shadow-sm backdrop-blur-sm">
-              <div className="w-8 h-8 rounded-lg bg-[#E4B329]/20 text-[#E4B329] flex items-center justify-center shrink-0">
-                <Droplets className="w-4 h-4" />
-              </div>
-              <div>
-                <div className="text-[10px] font-bold uppercase tracking-wider text-[#B8C7B3]">
-                  Extraction Grade
-                </div>
-                <div className="text-xs font-bold text-[#FBF7ED]">
-                  100% First-Press Pure
-                </div>
-              </div>
-            </div>
+          {/* Ornamental Heritage Cusped Arch & Mustard Blossom Art Frieze (Slightly Larger 2nd-Pic Style) */}
+          <div
+            className="hero-entrance-3 mt-7 mb-1 w-full max-w-2xl"
+            aria-hidden="true"
+          >
+            <svg
+              viewBox="0 0 640 86"
+              fill="none"
+              className="w-full h-auto overflow-visible"
+            >
+              {/* Left & Right Carved Cusped Arch Garland Lines */}
+              <path
+                d="M0 48 H56 C70 48, 78 30, 94 30 C110 30, 118 48, 132 48 H172"
+                stroke="#E4B329"
+                strokeWidth="1.7"
+                strokeOpacity="0.75"
+                strokeLinecap="round"
+              />
+              <path
+                d="M468 48 H508 C522 48, 530 30, 546 30 C562 30, 570 48, 584 48 H640"
+                stroke="#E4B329"
+                strokeWidth="1.7"
+                strokeOpacity="0.75"
+                strokeLinecap="round"
+              />
+              {/* Fine Dashed Architectural Baseline Under the Wings */}
+              <path
+                d="M18 57 H162 M478 57 H622"
+                stroke="#E4B329"
+                strokeWidth="1.1"
+                strokeDasharray="5 5"
+                strokeOpacity="0.5"
+              />
 
-            <div className="flex items-center gap-2.5 px-3.5 py-2.5 rounded-xl bg-[#04382A]/75 border border-[#E4B329]/35 shadow-sm backdrop-blur-sm">
-              <div className="w-8 h-8 rounded-lg bg-[#E4B329]/20 text-[#E4B329] flex items-center justify-center shrink-0">
-                <ShieldCheck className="w-4 h-4" />
-              </div>
-              <div>
-                <div className="text-[10px] font-bold uppercase tracking-wider text-[#B8C7B3]">
-                  Quality Assurance
-                </div>
-                <div className="text-xs font-bold text-[#FBF7ED]">
-                  Lab-Tested Every Batch
-                </div>
-              </div>
-            </div>
+              {/* Tiny Accent Mustard Buds on Outer Cusps */}
+              <circle cx="94" cy="30" r="2.8" fill="#E4B329" fillOpacity="0.8" />
+              <circle cx="546" cy="30" r="2.8" fill="#E4B329" fillOpacity="0.8" />
 
-            <div className="flex items-center gap-2.5 px-3.5 py-2.5 rounded-xl bg-[#04382A]/75 border border-[#E4B329]/35 shadow-sm backdrop-blur-sm">
-              <div className="w-8 h-8 rounded-lg bg-[#E4B329]/20 text-[#E4B329] flex items-center justify-center shrink-0">
-                <Truck className="w-4 h-4" />
-              </div>
-              <div>
-                <div className="text-[10px] font-bold uppercase tracking-wider text-[#B8C7B3]">
-                  Supply Formats
-                </div>
-                <div className="text-xs font-bold text-[#FBF7ED]">
-                  Pouches, Tins &amp; Tankers
-                </div>
-              </div>
-            </div>
+              {/* Left Botanical Mustard Leaves & Blooming 4-Petal Mustard Flower */}
+              <path
+                d="M174 48 C156 34, 136 35, 124 45 C138 54, 156 54, 174 48 Z"
+                fill="#5F963E"
+                fillOpacity="0.9"
+              />
+              <path
+                d="M168 46 C156 43, 144 43, 134 45"
+                stroke="#FBF7ED"
+                strokeOpacity="0.45"
+                strokeWidth="0.9"
+              />
+              <path
+                d="M214 54 C204 64, 192 66, 184 62 C190 54, 202 52, 214 54 Z"
+                fill="#5F963E"
+                fillOpacity="0.8"
+              />
+
+              <g transform="translate(198, 46)">
+                <ellipse cx="0" cy="-10.5" rx="6" ry="8.8" fill="#E4B329" />
+                <ellipse cx="0" cy="10.5" rx="6" ry="8.8" fill="#E4B329" />
+                <ellipse cx="-10.5" cy="0" rx="8.8" ry="6" fill="#E4B329" />
+                <ellipse cx="10.5" cy="0" rx="8.8" ry="6" fill="#E4B329" />
+                <circle cx="0" cy="0" r="3.8" fill="#B5573A" />
+                <circle cx="0" cy="0" r="1.4" fill="#FBF7ED" />
+              </g>
+
+              {/* Left Side Miniature Chhatri Arch Niche */}
+              <path
+                d="M232 66 V42 C232 31, 243 27, 251 24 C256 22, 259 17, 262 13 C265 17, 268 22, 273 24 C281 27, 292 31, 292 42 V66 Z"
+                fill="rgba(228, 179, 41, 0.10)"
+                stroke="#E4B329"
+                strokeWidth="1.6"
+                strokeLinejoin="round"
+              />
+              <path
+                d="M262 43 C258.5 36.5, 258.5 30, 262 25 C265.5 30, 265.5 36.5, 262 43 Z M262 43 C258.5 49.5, 258.5 56, 262 61 C265.5 56, 265.5 49.5, 262 43 Z M262 43 C255.5 39.5, 249 39.5, 244 43 C249 46.5, 255.5 46.5, 262 43 Z M262 43 C268.5 39.5, 275 39.5, 280 43 C275 46.5, 268.5 46.5, 262 43 Z"
+                stroke="#FBF7ED"
+                strokeOpacity="0.85"
+                strokeWidth="1.15"
+                fill="rgba(228, 179, 41, 0.22)"
+              />
+              <circle cx="262" cy="43" r="2" fill="#E4B329" />
+
+              {/* Center Grand Heritage Cusped Jharokha Arch with Phool-Jaali Quatrefoil */}
+              {/* Kalash Finial on Central Arch Apex */}
+              <path
+                d="M320 2 L317 9 H323 Z"
+                fill="#E4B329"
+              />
+              <path
+                d="M282 68 V36 C282 23, 296 18, 307 15 C314 13, 317 8, 320 4 C323 8, 326 13, 333 15 C344 18, 358 23, 358 36 V68 Z"
+                fill="rgba(228, 179, 41, 0.16)"
+                stroke="#E4B329"
+                strokeWidth="2.1"
+                strokeLinejoin="round"
+              />
+              {/* Inner Cusped Arch Contour */}
+              <path
+                d="M288 64 V38 C288 27, 300 23, 309 20 C315 18, 318 14, 320 10 C322 14, 325 18, 331 20 C340 23, 352 27, 352 38 V64"
+                stroke="#E4B329"
+                strokeOpacity="0.5"
+                strokeWidth="1"
+              />
+              {/* Central 4-Petal Phool-Jaali Quatrefoil */}
+              <path
+                d="M320 41 C314.5 31.5, 314.5 22, 320 15 C325.5 22, 325.5 31.5, 320 41 Z M320 41 C314.5 50.5, 314.5 60, 320 67 C325.5 60, 325.5 50.5, 320 41 Z M320 41 C310.5 35.5, 301 35.5, 294 41 C301 46.5, 310.5 46.5, 320 41 Z M320 41 C329.5 35.5, 339 35.5, 346 41 C339 46.5, 329.5 46.5, 320 41 Z"
+                stroke="#FBF7ED"
+                strokeWidth="1.45"
+                fill="rgba(228, 179, 41, 0.32)"
+              />
+              <circle cx="320" cy="41" r="3" fill="#E4B329" />
+
+              {/* Right Side Miniature Chhatri Arch Niche */}
+              <path
+                d="M348 66 V42 C348 31, 359 27, 367 24 C372 22, 375 17, 378 13 C381 17, 384 22, 389 24 C397 27, 408 31, 408 42 V66 Z"
+                fill="rgba(228, 179, 41, 0.10)"
+                stroke="#E4B329"
+                strokeWidth="1.6"
+                strokeLinejoin="round"
+              />
+              <path
+                d="M378 43 C374.5 36.5, 374.5 30, 378 25 C381.5 30, 381.5 36.5, 378 43 Z M378 43 C374.5 49.5, 374.5 56, 378 61 C381.5 56, 381.5 49.5, 378 43 Z M378 43 C371.5 39.5, 365 39.5, 360 43 C365 46.5, 371.5 46.5, 378 43 Z M378 43 C384.5 39.5, 391 39.5, 396 43 C391 46.5, 384.5 46.5, 378 43 Z"
+                stroke="#FBF7ED"
+                strokeOpacity="0.85"
+                strokeWidth="1.15"
+                fill="rgba(228, 179, 41, 0.22)"
+              />
+              <circle cx="378" cy="43" r="2" fill="#E4B329" />
+
+              {/* Base Sill Line Under the 3-Arch Jharokha Arcade */}
+              <path
+                d="M224 68 H416"
+                stroke="#E4B329"
+                strokeWidth="1.6"
+                strokeLinecap="round"
+              />
+
+              {/* Right Blooming 4-Petal Mustard Flower & Botanical Leaves */}
+              <g transform="translate(442, 46)">
+                <ellipse cx="0" cy="-10.5" rx="6" ry="8.8" fill="#E4B329" />
+                <ellipse cx="0" cy="10.5" rx="6" ry="8.8" fill="#E4B329" />
+                <ellipse cx="-10.5" cy="0" rx="8.8" ry="6" fill="#E4B329" />
+                <ellipse cx="10.5" cy="0" rx="8.8" ry="6" fill="#E4B329" />
+                <circle cx="0" cy="0" r="3.8" fill="#B5573A" />
+                <circle cx="0" cy="0" r="1.4" fill="#FBF7ED" />
+              </g>
+
+              <path
+                d="M426 54 C436 64, 448 66, 456 62 C450 54, 438 52, 426 54 Z"
+                fill="#5F963E"
+                fillOpacity="0.8"
+              />
+              <path
+                d="M466 48 C484 34, 504 35, 516 45 C502 54, 484 54, 466 48 Z"
+                fill="#5F963E"
+                fillOpacity="0.9"
+              />
+              <path
+                d="M472 46 C484 43, 496 43, 506 45"
+                stroke="#FBF7ED"
+                strokeOpacity="0.45"
+                strokeWidth="0.9"
+              />
+            </svg>
           </div>
 
           {/* Primary & Secondary Action Buttons */}
-          <div className="hero-entrance-4 mt-8 flex flex-wrap items-center gap-4">
+          <div className="hero-entrance-4 mt-6 inline-grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4">
             <a
               href="#quote-section"
               onClick={(e) => scrollToSection(e, "quote-section")}
-              className="btn-hero-primary-amber text-[15px] whitespace-nowrap cursor-pointer active:scale-95"
+              className="btn-hero-primary-amber w-full h-[50px] text-[15px] whitespace-nowrap cursor-pointer active:scale-95"
             >
               <span>Get Factory Price Quote</span>
               <ArrowUpRight className="h-4 w-4 shrink-0" />
@@ -458,7 +582,7 @@ export const HeroAnimation: React.FC = () => {
             <a
               href="#catalog"
               onClick={(e) => scrollToSection(e, "catalog")}
-              className="btn-hero-secondary-glass text-[15px] whitespace-nowrap cursor-pointer active:scale-95"
+              className="btn-hero-secondary-glass w-full h-[50px] text-[15px] whitespace-nowrap cursor-pointer active:scale-95"
             >
               <span>Browse 8 Mill Products</span>
             </a>
