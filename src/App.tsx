@@ -4,7 +4,6 @@ import { HeroAnimation, AmbientBotanicalLayer } from "./components/HeroAnimation
 import { ProductCatalog } from "./components/ProductCatalog";
 import { QuoteSection } from "./components/QuoteSection";
 import { FloatingRfqPill } from "./components/FloatingRfqPill";
-import { QualityAssistantChatbot } from "./components/QualityAssistantChatbot";
 import { Footer } from "./components/Footer";
 import { ErrorBoundary } from "./components/ErrorBoundary";
 
@@ -110,13 +109,18 @@ export const App: React.FC = () => {
               <HeroAnimation />
             </ErrorBoundary>
 
-            {/* CATALOG & LOWER SECTIONS FLOW WITH HERITAGE JAALI LATTICE & AMBIENT FLOWERS/WAVES */}
+            {/* CATALOG & LOWER SECTIONS FLOW WITH HERITAGE JAALI LATTICE */}
             <div
               id="content-flow-container"
               className="jaali-pattern relative w-full z-20 bg-[#FBF7ED] overflow-hidden"
             >
-              {/* Drifting Mustard Flowers & Subtle Golden Waves in Catalog/Quote Flow */}
-              <AmbientBotanicalLayer mode="catalog" />
+              {/* Drifting Mustard Flowers & Leaves — Ends at the Catalog Intro / Edible Oils Heading */}
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute top-0 inset-x-0 h-[350px] sm:h-[385px] overflow-hidden [mask-image:linear-gradient(to_bottom,black_72%,transparent_100%)]"
+              >
+                <AmbientBotanicalLayer mode="catalog" />
+              </div>
 
               <div className="relative z-10">
                 {/* SECTION 2: PRODUCT CATALOG & SPECIFICATION MATRIX */}
@@ -151,14 +155,6 @@ export const App: React.FC = () => {
             selectedCount={selectedProducts.size}
             onScrollToRfq={scrollToRfq}
           />
-
-          {/* B2B AI QUALITY ASSISTANT CHATBOT */}
-          <ErrorBoundary>
-            <QualityAssistantChatbot
-              onAddProductToRfq={addProduct}
-              selectedProducts={selectedProducts}
-            />
-          </ErrorBoundary>
         </main>
       </div>
     </ErrorBoundary>

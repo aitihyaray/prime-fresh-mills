@@ -339,73 +339,112 @@ export const HeroAnimation: React.FC = () => {
     <section
       id="home"
       aria-label="Prime Fresh Oil Mills — Direct Mill Agro-Commodities & Cold-Pressed Oils"
-      className="bg-emerald-hero relative flex min-h-[85svh] items-center overflow-hidden text-[#FBF7ED] border-b-2 border-[#E4B329]/40"
+      className="bg-emerald-hero relative flex min-h-[100svh] items-center overflow-hidden text-[#FBF7ED] border-b-2 border-[#E4B329]/40"
     >
       {/* 1. Combined Drifting Mustard Flowers + Subtle Golden Waves Layer */}
       <AmbientBotanicalLayer mode="hero" />
 
-      {/* 2. Subtle Golden Line-Art Jharokha Watermark on Right Edge */}
+      {/* 2. Kishangarh Royal Painting Holding Mustard Flower Framed Inside Right-Side Jharokha Arch (Background Layer) */}
       <svg
         aria-hidden="true"
-        viewBox="0 0 360 480"
-        className="pointer-events-none absolute right-2 lg:right-10 bottom-0 h-[68%] w-auto opacity-16 hidden md:block"
+        viewBox="0 0 420 520"
+        preserveAspectRatio="xMaxYMax meet"
+        className="pointer-events-none absolute right-2 sm:right-5 lg:right-8 bottom-0 h-[68%] sm:h-[78%] lg:h-[90%] w-auto opacity-30 md:opacity-95 blur-[0.5px] md:blur-none transition-all duration-500 drop-shadow-[0_12px_36px_rgba(0,0,0,0.38)]"
         fill="none"
       >
+        <defs>
+          <clipPath id="hero-jharokha-arch-clip">
+            <path d="M38 520 V204 C38 134, 86 92, 134 70 C170 53, 194 32, 210 14 C226 32, 250 53, 286 70 C334 92, 382 134, 382 204 V520 Z" />
+          </clipPath>
+          <linearGradient
+            id="hero-jharokha-vignette"
+            x1="210"
+            y1="14"
+            x2="210"
+            y2="520"
+            gradientUnits="userSpaceOnUse"
+          >
+            <stop offset="0%" stopColor="#04382A" stopOpacity="0.12" />
+            <stop offset="75%" stopColor="#04382A" stopOpacity="0.04" />
+            <stop offset="100%" stopColor="#04382A" stopOpacity="0.45" />
+          </linearGradient>
+        </defs>
+
+        {/* Outer Jharokha Arch Halo Line Touching Bottom Edge */}
         <path
-          d="M36 470V220C36 154 80 112 118 90C146 73 168 48 180 32C192 48 214 73 242 90C280 112 324 154 324 220V470"
+          d="M26 520 V204 C26 128, 78 84, 128 60 C166 42, 192 22, 210 2 C228 22, 254 42, 292 60 C342 84, 394 128, 394 204 V520"
           stroke="#E4B329"
-          strokeWidth="2"
+          strokeWidth="1.4"
+          strokeDasharray="5 5"
+          strokeOpacity="0.55"
+        />
+
+        {/* Clipped Kishangarh Mustard-Flower Painting (Cropping Outer Red Border & Corner Mark) */}
+        <g clipPath="url(#hero-jharokha-arch-clip)">
+          <image
+            href="/assets/aistudio/Gemini_Generated_Image_7rv13k7rv13k7rv1_966815f5.png"
+            x="16"
+            y="8"
+            width="388"
+            height="536"
+            preserveAspectRatio="xMidYMid slice"
+          />
+          <rect
+            x="38"
+            y="14"
+            width="344"
+            height="506"
+            fill="url(#hero-jharokha-vignette)"
+          />
+        </g>
+
+        {/* Crisp Golden Jharokha Arch Border Frame */}
+        <path
+          d="M38 520 V204 C38 134, 86 92, 134 70 C170 53, 194 32, 210 14 C226 32, 250 53, 286 70 C334 92, 382 134, 382 204 V520"
+          stroke="#E4B329"
+          strokeWidth="2.4"
+          strokeLinejoin="round"
         />
         <path
-          d="M54 470V226C54 168 92 128 128 106C152 91 170 70 180 54C190 70 208 91 232 106C268 128 306 168 306 226V470"
-          stroke="#E4B329"
-          strokeWidth="1.1"
-          strokeDasharray="6 6"
-        />
-        <circle cx="180" cy="110" r="12" stroke="#E4B329" strokeWidth="1.4" />
-        <path
-          d="M180 90L188 110L180 130L172 110Z"
-          fill="#E4B329"
-          fillOpacity="0.3"
+          d="M46 520 V206 C46 140, 92 100, 138 78 C172 62, 195 42, 210 24 C225 42, 248 62, 282 78 C328 100, 374 140, 374 206 V520"
+          stroke="#FBF7ED"
+          strokeWidth="1"
+          strokeOpacity="0.45"
+          strokeLinejoin="round"
         />
       </svg>
 
-      {/* 3. Main Hero Content Block */}
-      <div className="relative z-10 mx-auto w-full max-w-7xl px-6 lg:px-12 pt-32 sm:pt-36 pb-20 sm:pb-24">
-        <div className="max-w-3xl flex flex-col items-start text-left">
-          {/* Mustard Gold Eyebrow Kicker */}
-          <div className="hero-entrance-1 inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-[#04382A]/80 border border-[#E4B329]/45 backdrop-blur-xs shadow-xs">
-            <span className="text-[11px] sm:text-xs font-semibold uppercase tracking-[0.2em] text-[#E4B329]">
+      {/* 3. Main Hero Content Block — Split Top/Bottom on Mobile, Left-Column Flow on Desktop */}
+      <div className="relative z-10 w-full flex-1 flex flex-col justify-between md:block px-4 sm:px-5 md:px-8 lg:px-10 xl:px-14 pt-20 sm:pt-24 md:pt-32 pb-6 sm:pb-10 md:pb-20 min-h-[100svh] md:min-h-0">
+        {/* TOP GROUP ON MOBILE: Eyebrow (Desktop Only) + Commandingly Scaled Mobile Headline */}
+        <div className="w-full max-w-none md:max-w-[53%] lg:max-w-[54%] flex flex-col items-start text-left">
+          {/* Mustard Gold Eyebrow Kicker — Removed on Mobile per User Annotation */}
+          <div className="hero-entrance-1 hidden md:inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#04382A]/80 border border-[#E4B329]/45 backdrop-blur-xs shadow-xs max-w-full">
+            <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[#E4B329] whitespace-nowrap">
               Direct From Our Extraction Mill · Bulk Agro-Commodities
             </span>
           </div>
 
-          {/* Original Executive Display Headline */}
-          <h1 className="hero-entrance-2 font-sans font-semibold tracking-[-0.02em] mt-5 sm:mt-6 text-4xl sm:text-6xl lg:text-[4.25rem] leading-[1.08] text-[#FBF7ED] drop-shadow-[0_2px_20px_rgba(0,0,0,0.3)]">
-            Harvest-Fresh Extraction.
-            <br />
-            Built for{" "}
-            <span className="font-display-serif italic font-semibold text-[#E4B329]">
-              India&apos;s Bulk Trade.
+          {/* Executive Display Headline — Spans Full Marked Vertical Area on Mobile, 2-Line Left-Pinned on Desktop */}
+          <h1 className="hero-entrance-2 font-sans font-semibold tracking-[-0.02em] md:tracking-[-0.025em] mt-3 mb-6 md:mt-5 md:mb-0 text-[clamp(2.35rem,9.8vw,3rem)] md:text-[2.75rem] lg:text-[3.15rem] xl:text-[3.55rem] leading-[1.32] md:leading-[1.1] text-[#FBF7ED] drop-shadow-[0_2px_20px_rgba(0,0,0,0.3)] w-full max-w-none">
+            <span className="md:block md:whitespace-nowrap">
+              <span className="block md:inline">Harvest-Fresh</span>{" "}
+              <span className="block md:inline">Extraction.</span>
+            </span>
+            <span className="md:block md:whitespace-nowrap">
+              <span className="block md:inline">Built for</span>{" "}
+              <span className="block md:inline font-display-serif italic font-semibold text-[#E4B329] whitespace-nowrap">
+                India&apos;s Bulk Trade.
+              </span>
             </span>
           </h1>
+        </div>
 
-          {/* Original B2B Description Paragraph */}
-          <p className="hero-entrance-3 font-sans mt-5 max-w-2xl text-[15px] sm:text-[16.5px] leading-[1.65] text-[#FBF7ED]/90">
-            Welcome to{" "}
-            <strong className="font-semibold text-[#E4B329]">
-              Prime Fresh Oil Mills
-            </strong>{" "}
-            — your trusted processing partner for unblended Kachi Ghani Mustard,
-            Groundnut, Cottonseed, and Soyabean oils alongside high-protein
-            cattle feed cakes. Crushed daily from farm-selected seeds and
-            dispatched straight to wholesalers, food factories, and
-            institutional buyers.
-          </p>
-
-          {/* Ornamental Heritage Cusped Arch & Mustard Blossom Art Frieze (Slightly Larger 2nd-Pic Style) */}
+        {/* BOTTOM GROUP ON MOBILE: Shifted Down to Bottom of Screen so Queen Artwork Shows in Center */}
+        <div className="w-full md:max-w-[53%] lg:max-w-[54%] flex flex-col items-start text-left mt-auto md:mt-0">
+          {/* Ornamental Heritage Cusped Arch & Mustard Blossom Art Frieze */}
           <div
-            className="hero-entrance-3 mt-7 mb-1 w-full max-w-2xl"
+            className="hero-entrance-3 md:mt-7 mb-2 sm:mb-1.5 w-full max-w-[460px] sm:max-w-[480px] xl:max-w-[520px]"
             aria-hidden="true"
           >
             <svg
@@ -486,7 +525,6 @@ export const HeroAnimation: React.FC = () => {
               <circle cx="262" cy="43" r="2" fill="#E4B329" />
 
               {/* Center Grand Heritage Cusped Jharokha Arch with Phool-Jaali Quatrefoil */}
-              {/* Kalash Finial on Central Arch Apex */}
               <path
                 d="M320 2 L317 9 H323 Z"
                 fill="#E4B329"
@@ -569,11 +607,11 @@ export const HeroAnimation: React.FC = () => {
           </div>
 
           {/* Primary & Secondary Action Buttons */}
-          <div className="hero-entrance-4 mt-6 inline-grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4">
+          <div className="hero-entrance-4 mt-3 sm:mt-6 md:mt-7 grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-3.5 w-full max-w-[460px] sm:max-w-[480px] xl:max-w-[520px]">
             <a
               href="#quote-section"
               onClick={(e) => scrollToSection(e, "quote-section")}
-              className="btn-hero-primary-amber w-full h-[50px] text-[15px] whitespace-nowrap cursor-pointer active:scale-95"
+              className="btn-hero-primary-amber w-full h-[46px] sm:h-[48px] !px-4 text-[13.5px] sm:text-[14px] whitespace-nowrap cursor-pointer active:scale-95"
             >
               <span>Get Factory Price Quote</span>
               <ArrowUpRight className="h-4 w-4 shrink-0" />
@@ -582,7 +620,7 @@ export const HeroAnimation: React.FC = () => {
             <a
               href="#catalog"
               onClick={(e) => scrollToSection(e, "catalog")}
-              className="btn-hero-secondary-glass w-full h-[50px] text-[15px] whitespace-nowrap cursor-pointer active:scale-95"
+              className="btn-hero-secondary-glass w-full h-[46px] sm:h-[48px] !px-4 text-[13.5px] sm:text-[14px] whitespace-nowrap cursor-pointer active:scale-95"
             >
               <span>Browse 8 Mill Products</span>
             </a>

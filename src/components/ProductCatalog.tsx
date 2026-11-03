@@ -97,7 +97,6 @@ export const ProductCatalog: React.FC<ProductCatalogProps> = ({
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {edibleOils.map((product) => {
-              const isSelected = selectedProducts.has(product.productName);
               return (
                 <div
                   key={product.id}
@@ -127,60 +126,13 @@ export const ProductCatalog: React.FC<ProductCatalogProps> = ({
                       </div>
                     </div>
                   </div>
-                  <div className="p-4 pt-0 flex items-center gap-2">
+                  <div className="p-4 pt-0 flex items-center">
                     <button
                       type="button"
-                      className="flex-1 inline-flex items-center justify-center text-xs font-semibold text-[#FBF7ED] bg-[#064E3B] hover:bg-[#04382A] h-10 rounded-full transition-all shadow-xs hover:shadow active:scale-[0.99] cursor-pointer"
+                      className="w-full inline-flex items-center justify-center text-xs font-semibold text-[#FBF7ED] bg-[#064E3B] hover:bg-[#04382A] h-10 rounded-full transition-all shadow-xs hover:shadow active:scale-[0.99] cursor-pointer"
                       onClick={() => onInquire(product.productName)}
                     >
                       <span>Inquire</span>
-                    </button>
-                    <button
-                      type="button"
-                      className={`rfq-toggle-btn shrink-0 active:scale-95 cursor-pointer ${
-                        isSelected ? "is-selected" : ""
-                      }`}
-                      onClick={() => onToggleProduct(product.productName)}
-                      aria-label={
-                        isSelected
-                          ? `Remove ${product.productName} from Inquiry List`
-                          : `Add ${product.productName} to Inquiry List`
-                      }
-                      title={
-                        isSelected
-                          ? "Remove from Inquiry List"
-                          : "Add to Inquiry List"
-                      }
-                    >
-                      {isSelected ? (
-                        <svg
-                          className="w-4 h-4 stroke-current"
-                          fill="none"
-                          strokeWidth="2.5"
-                          viewBox="0 0 24 24"
-                          aria-hidden="true"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M5 13l4 4L19 7"
-                          />
-                        </svg>
-                      ) : (
-                        <svg
-                          className="w-4 h-4 stroke-current"
-                          fill="none"
-                          strokeWidth="2.4"
-                          viewBox="0 0 24 24"
-                          aria-hidden="true"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M12 5v14M5 12h14"
-                          />
-                        </svg>
-                      )}
                     </button>
                   </div>
                 </div>
@@ -199,7 +151,6 @@ export const ProductCatalog: React.FC<ProductCatalogProps> = ({
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {seedsAndDocs.map((product) => {
-              const isSelected = selectedProducts.has(product.productName);
               return (
                 <div
                   key={product.id}
@@ -229,60 +180,13 @@ export const ProductCatalog: React.FC<ProductCatalogProps> = ({
                       </div>
                     </div>
                   </div>
-                  <div className="p-4 pt-0 flex items-center gap-2">
+                  <div className="p-4 pt-0 flex items-center">
                     <button
                       type="button"
-                      className="flex-1 inline-flex items-center justify-center text-xs font-semibold text-[#FBF7ED] bg-[#064E3B] hover:bg-[#04382A] h-10 rounded-full transition-all shadow-xs hover:shadow active:scale-[0.99] cursor-pointer"
+                      className="w-full inline-flex items-center justify-center text-xs font-semibold text-[#FBF7ED] bg-[#064E3B] hover:bg-[#04382A] h-10 rounded-full transition-all shadow-xs hover:shadow active:scale-[0.99] cursor-pointer"
                       onClick={() => onInquire(product.productName)}
                     >
                       <span>Inquire</span>
-                    </button>
-                    <button
-                      type="button"
-                      className={`rfq-toggle-btn shrink-0 active:scale-95 cursor-pointer ${
-                        isSelected ? "is-selected" : ""
-                      }`}
-                      onClick={() => onToggleProduct(product.productName)}
-                      aria-label={
-                        isSelected
-                          ? `Remove ${product.productName} from Inquiry List`
-                          : `Add ${product.productName} to Inquiry List`
-                      }
-                      title={
-                        isSelected
-                          ? "Remove from Inquiry List"
-                          : "Add to Inquiry List"
-                      }
-                    >
-                      {isSelected ? (
-                        <svg
-                          className="w-4 h-4 stroke-current"
-                          fill="none"
-                          strokeWidth="2.5"
-                          viewBox="0 0 24 24"
-                          aria-hidden="true"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M5 13l4 4L19 7"
-                          />
-                        </svg>
-                      ) : (
-                        <svg
-                          className="w-4 h-4 stroke-current"
-                          fill="none"
-                          strokeWidth="2.4"
-                          viewBox="0 0 24 24"
-                          aria-hidden="true"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M12 5v14M5 12h14"
-                          />
-                        </svg>
-                      )}
                     </button>
                   </div>
                 </div>
