@@ -414,9 +414,9 @@ export const HeroAnimation: React.FC = () => {
         />
       </svg>
 
-      {/* 3. Main Hero Content Block — Split Top/Bottom on Mobile, Left-Column Flow on Desktop */}
-      <div className="relative z-10 w-full flex-1 flex flex-col justify-between md:block px-4 sm:px-5 md:px-8 lg:px-10 xl:px-14 pt-20 sm:pt-24 md:pt-32 pb-6 sm:pb-10 md:pb-20 min-h-[100svh] md:min-h-0">
-        {/* TOP GROUP ON MOBILE: Eyebrow (Desktop Only) + Commandingly Scaled Mobile Headline */}
+      {/* 3. Main Hero Content Block — Top Headline Anchored Upper-Left, Frieze & Buttons Positioned Lower */}
+      <div className="relative z-10 w-full flex-1 flex flex-col justify-between px-4 sm:px-5 md:px-8 lg:px-10 xl:px-14 pt-20 sm:pt-24 md:pt-28 lg:pt-32 pb-6 sm:pb-10 md:pb-12 lg:pb-14 min-h-[100svh]">
+        {/* TOP GROUP: Eyebrow (Desktop Only) + Executive Display Headline */}
         <div className="w-full max-w-none md:max-w-[53%] lg:max-w-[54%] flex flex-col items-start text-left">
           {/* Mustard Gold Eyebrow Kicker — Removed on Mobile per User Annotation */}
           <div className="hero-entrance-1 hidden md:inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#04382A]/80 border border-[#E4B329]/45 backdrop-blur-xs shadow-xs max-w-full">
@@ -440,11 +440,11 @@ export const HeroAnimation: React.FC = () => {
           </h1>
         </div>
 
-        {/* BOTTOM GROUP ON MOBILE: Shifted Down to Bottom of Screen so Queen Artwork Shows in Center */}
-        <div className="w-full md:max-w-[53%] lg:max-w-[54%] flex flex-col items-start text-left mt-auto md:mt-0">
+        {/* BOTTOM GROUP: Positioned Lower in the Hero Canvas */}
+        <div className="w-full md:max-w-[53%] lg:max-w-[54%] flex flex-col items-start text-left mt-auto pt-8 md:pt-12">
           {/* Ornamental Heritage Cusped Arch & Mustard Blossom Art Frieze */}
           <div
-            className="hero-entrance-3 md:mt-7 mb-2 sm:mb-1.5 w-full max-w-[460px] sm:max-w-[480px] xl:max-w-[520px]"
+            className="hero-entrance-3 mb-2 sm:mb-1.5 w-full max-w-[460px] sm:max-w-[480px] xl:max-w-[520px]"
             aria-hidden="true"
           >
             <svg
